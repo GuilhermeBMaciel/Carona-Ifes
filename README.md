@@ -35,8 +35,8 @@ DICA:
 # Sumário
 
 ### 1	COMPONENTES<br>
-Guilherme Maciel
-Jadson Pereira
+Guilherme Maciel<br>
+Jadson Pereira<br>
 João Pedro Viera<br>
 
 ### 2	INTRODUÇÃO E MOTIVAÇAO<br>
@@ -49,11 +49,8 @@ No cenário atual do IFES Campus Serra, onde o número de vagas do estacionament
 A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de transporte para o campus e as pessoas que utilizam de algum outro meio. O motorista do carro define seu itinerário diário, contendo rotas, horários e a quantidade de lugares disponíveis, e esse itinerário fica exposto para os outros usuários do sistema. O usuário que deseja usufruir de uma carona, verifica entre todos os itinerários expostos o que mais lhe agrada e se registra nesse carro. O itinerário fica exposto até um horário limite, assim que esse horário é atingido, o sistema notifica o motorista os locais e as pessoas que ele deve parar para dar a carona. Não pode alocar mais usuários dentro do carro do que o limite definido. <br>
 
 ### 4	RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
-neste ponto a codificação não e necessária, somente as ideias de telas devem ser criadas, o princípio aqui é pensar na criação da interface para identificar possíveis informações a serem armazenadas ou descartadas <br>
 
-Sugestão: https://balsamiq.com/products/mockups/<br>
-
-![Alt text](https://github.com/discipbd2/topicos-trabalho/blob/master/balsamiq.png?raw=true "Title")
+- [Mockups](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/mockups/Caronaifes.pdf)
 
 
 ### 5	MODELO CONCEITUAL<br>
