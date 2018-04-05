@@ -72,7 +72,7 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 
 #### 5.4 DESCRIÇÃO DOS DADOS 
 
-*__USUARIO__*: Tabela que contém os dados do funcionário <br>
+*__USUARIO__*: Tabela que contém os dados do usuário <br>
 - *id*: campo que armazena o id do usuario <br>
 - *login*: campo que armazena o login do usuario <br>
 - *nome*: campo que armazena o nome do usuario <br>
@@ -81,22 +81,22 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 - *matricula_ou_siape*: campo para armazenamento da matricula ou do siape. <br>
 - *senha*: campo que armazena a senha do usuario <br>
 - *modo_motorista*: armazena um boolean, para saber se o usuário está no modo motorista ou não <br><br>
-*__ITINERARIO__*: Tabela que contém os dados do sensor <br>
+*__ITINERARIO__*: Tabela que contém os dados do itinerário <br>
 - *id*: campo que armazena o número para identificação do itinerário <br>
 - *vaga_usuario*: campo que armazena a quantidade de vagas disponíveis para este itinerário <br>
 - *tempo_ativo*: campo que armazena o tempo para que o itinerário permaneça ativo <br><br>
-*__LOCAL__*: Tabela que contém os dados da localização dos sensores <br>
+*__LOCAL__*: Tabela que contém os dados de localização das caronas <br>
 - *id*: campo que armazena o id da localização <br>
 - *local_de_saida*: campo que armazena a posição de saida da carona <br>
 - *horario_retorno*: campo que armazena a hora de retorno <br>
 - *horario_saida*: campo para o armazenamento da hora de saida  <br>
 - *local_de_retorno*: campo que armazena a posição para o retorno da carona <br><br>
-*__VEICULO__*: Tabela que contém os dados das medidas captadas pelo sensor <br>
+*__VEICULO__*: Tabela que contém os dados dos veículos dos motoristas <br>
 - *marca*: campo que armazena a marca do veículo <br>
 - *id*: campo que armazena o id do veículo. <br>
 - *modelo*: campo que armazena o nome do modelo do veículo <br> 
 - *cor*: campo que armazena a cor do veículo. <br><br>
-*__HISTORICO__*: Tabela que contém os dados das medidas captadas pelo sensor <br>
+*__HISTORICO__*: Tabela que contém as avaliações dadas por usuários a outros usuários <br>
 - *nome_usuario*: campo que armazena o nome do usuario que fez a avaliação <br>
 - *id*: campo que armazena o id da avaliação (historico) <br>
 - *descricao*: campo que armazena a avaliação por extenso da experiencia deste usuario com o motorista<br> 
