@@ -77,22 +77,22 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 - *email*: campo que armazena o email do usuario <br>
 - *matricula_ou_siape*: campo para armazenamento da matricula ou do siape. <br>
 - *senha*: campo que armazena a senha do usuario <br>
-- *modo_motorista*: armazena um boolean, para saber se o usuário está no modo motorista ou não <br>
+- *modo_motorista*: armazena um boolean, para saber se o usuário está no modo motorista ou não <br><br>
 *__ITINERARIO__*: Tabela que contém os dados do sensor <br>
 - *id*: campo que armazena o número para identificação do itinerário <br>
 - *vaga_usuario*: campo que armazena a quantidade de vagas disponíveis para este itinerário <br>
-- *tempo_ativo*: campo que armazena o tempo para que o itinerário permaneça ativo <br>
+- *tempo_ativo*: campo que armazena o tempo para que o itinerário permaneça ativo <br><br>
 *__LOCAL__*: Tabela que contém os dados da localização dos sensores <br>
 - *id*: campo que armazena o id da localização <br>
 - *local_de_saida*: campo que armazena a posição de saida da carona <br>
 - *horario_retorno*: campo que armazena a hora de retorno <br>
 - *horario_saida*: campo para o armazenamento da hora de saida  <br>
-- *local_de_retorno*: campo que armazena a posição para o retorno da carona <br>
+- *local_de_retorno*: campo que armazena a posição para o retorno da carona <br><br>
 *__VEICULO__*: Tabela que contém os dados das medidas captadas pelo sensor <br>
 - *marca*: campo que armazena a marca do veículo <br>
 - *id*: campo que armazena o id do veículo. <br>
 - *modelo*: campo que armazena o nome do modelo do veículo <br> 
-- *cor*: campo que armazena a cor do veículo. <br> 
+- *cor*: campo que armazena a cor do veículo. <br><br>
 *__HISTORICO__*: Tabela que contém os dados das medidas captadas pelo sensor <br>
 - *nome_usuario*: campo que armazena o nome do usuario que fez a avaliação <br>
 - *id*: campo que armazena o id da avaliação (historico) <br>
@@ -100,12 +100,13 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 - *nota*: de um a cinco, a nota dada ao motorista pela carona<br> 
 
 ### 6	MODELO LÓGICO<br>
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/logico.png)
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/logico.PNG)
 ### 7	MODELO FÍSICO<br>
 ![Modelo físico](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/fisico.png)
+<br>
+```
 /* Lógico_1: */
 
-```
 CREATE TABLE Usuario (
     login VARCHAR PRIMARY KEY,
     nome VARCHAR,
