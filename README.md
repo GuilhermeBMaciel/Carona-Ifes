@@ -58,9 +58,16 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 ![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/conceitual.png)
     
 #### 5.3 DECISÕES DE PROJETO
-    a) Tabela "local": foi criada uma tabela local a parte de "itinerario", para que possa ser reaproveitada em mais de um<br> itinerário, casa haja, tendo em vista que mais uma pessoa pode acabar registrando uma carona com o mesmo destino e local de saida. <br>
-    b) Tabela "usuario"; atributo "modo_motorista": O atributo "modo_motorista" na tabela usuario representa o modo como o<br> usuário do sistema o está acessando, mostrando informações que sejam relevantes para o seu modo de utilização, sendo estes modos<br> motorista ou usuario para caronas. <br>
-    c) Tabela "usuario"; atributo "matricula_ou_siape": Este atributo da ao sistema um controle, e um maior nivel de segurança<br> aos usuários, uma vez que se torna possivel prever seus padrões de comportamento. <br>
+    
+    a) Tabela "local": foi criada uma tabela local a parte de "itinerario", para que possa ser reaproveitada em mais de um itinerário,
+    casa haja, tendo em vista que mais uma pessoa pode acabar registrando uma carona com o mesmo destino e local de saida. <br>
+    
+    b) Tabela "usuario"; atributo "modo_motorista": O atributo "modo_motorista" na tabela usuario representa o modo como o usuário do 
+    sistema o está acessando, mostrando informações que sejam relevantes para o seu modo de utilização, sendo estes modos motorista ou 
+    usuario para caronas. <br>
+    
+    c) Tabela "usuario"; atributo "matricula_ou_siape": Este atributo da ao sistema um controle, e um maior nivel de segurança aos 
+    usuários, uma vez que se torna possivel prever seus padrões de comportamento. <br>
    
 
 #### 5.4 DESCRIÇÃO DOS DADOS 
