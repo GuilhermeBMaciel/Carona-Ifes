@@ -112,9 +112,8 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 ### 7	MODELO FÍSICO<br>
 - [Modelo físico](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/fisico.sql)
 <br>
-```
-/* Lógico_1: */
 
+```
 CREATE TABLE Usuario (
     login VARCHAR PRIMARY KEY,
     nome VARCHAR,
@@ -186,6 +185,7 @@ ALTER TABLE possui ADD CONSTRAINT FK_possui_1
     FOREIGN KEY (FK_Usuario_login)
     REFERENCES Usuario (login)
     ON DELETE SET NULL ON UPDATE CASCADE;
+    
 ```
 
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
