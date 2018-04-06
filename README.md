@@ -115,8 +115,6 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 ```
 /* Lógico_1: */
 
-/* Lógico_1: */
-
 CREATE TABLE Usuario (
     login VARCHAR PRIMARY KEY,
     nome VARCHAR,
