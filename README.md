@@ -66,8 +66,8 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
     sistema o está acessando, mostrando informações que sejam relevantes para o seu modo de utilização, sendo estes modos motorista ou 
     usuario para caronas. <br>
     
-    c) Tabela "usuario"; atributo "matricula_ou_siape": Este atributo da ao sistema um controle, e um maior nivel de segurança aos 
-    usuários, uma vez que se torna possivel prever seus padrões de comportamento. <br>
+    c) Tabela "motorista": a tabela motorista foi incluida no modelo devido a presença do "cnh" em alguns usuários. Os usuários
+    "motoristas" possuem todos os atributos dos "usuarios" regulares, com o acrescimo do "cnh".<br>
    
 
 #### 5.4 DESCRIÇÃO DOS DADOS 
@@ -80,10 +80,15 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 - *email*: campo que armazena o email do usuario <br>
 - *matricula_ou_siape*: campo para armazenamento da matricula ou do siape. <br>
 - *senha*: campo que armazena a senha do usuario <br>
+- *Usuario_Tipo*: define se o usuario será um usuario regular que ira pegar caronas, ou se será um motorista <br>
+- *cnh*: armazenará o número de cnh do motorista <br>
 - *modo_motorista*: armazena um boolean, para saber se o usuário está no modo motorista ou não <br><br>
-*__ITINERARIO__*: Tabela que contém os dados do itinerário <br>
+*__CARONA__*: Tabela que contém os dados do itinerário <br>
 - *id*: campo que armazena o número para identificação do itinerário <br>
+- *vaga_motorista*: campo que armazena o nome do motorista de determinada carona <br>
 - *vaga_usuario*: campo que armazena a quantidade de vagas disponíveis para este itinerário <br>
+- *avaliacao*: campo que armazena a avaliação por extenso da carona realizada <br>
+- *nota_avaliacao*: campo que armazena a nota de 1 a 5 da avaliação do motorista <br>
 - *tempo_ativo*: campo que armazena o tempo para que o itinerário permaneça ativo <br><br>
 *__LOCAL__*: Tabela que contém os dados de localização das caronas <br>
 - *id*: campo que armazena o id da localização <br>
@@ -105,9 +110,11 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 ### 6	MODELO LÓGICO<br>
 ![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/logico.PNG)
 ### 7	MODELO FÍSICO<br>
-![Modelo físico](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/fisico.sql)
+- [Modelo físico](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/fisico.sql)
 <br>
 ```
+/* Lógico_1: */
+
 /* Lógico_1: */
 
 CREATE TABLE Usuario (
@@ -118,22 +125,26 @@ CREATE TABLE Usuario (
     email VARCHAR,
     modo_motorista BOOLEAN,
     senha VARCHAR,
-    cnh VARCHAR
+    cnh VARCHAR,
+    Usuario_TIPO INT
 );
 
-CREATE TABLE Itinerario (
+CREATE TABLE carona (
+    vaga_motorista VARCHAR,
     vaga_usuario INTEGER,
     id INTEGER PRIMARY KEY,
-    tempo_ativo TIME,
-    FK_local_id VARCHAR
+    tempo_ativo INTEGER,
+    avaliacao INTEGER,
+    nota_avaliacao INTEGER,
+    FK_local_id INTEGER
 );
 
 CREATE TABLE local (
     local_de_saida VARCHAR,
     horario_saida TIME,
     local_de_retorno VARCHAR,
-    horario_retorno TIME,
-    id VARCHAR PRIMARY KEY
+    horario_retorno VARCHAR,
+    id INTEGER PRIMARY KEY
 );
 
 CREATE TABLE veiculo (
@@ -143,68 +154,40 @@ CREATE TABLE veiculo (
     id INTEGER PRIMARY KEY
 );
 
-CREATE TABLE historico (
-    nota INTEGER,
-    descricao VARCHAR,
-    id INTEGER PRIMARY KEY,
-    nome_usuario VARCHAR
-);
-
-CREATE TABLE Registra (
-    FK_Itinerario_id INTEGER,
+CREATE TABLE possui (
+    FK_carona_id INTEGER,
     FK_Usuario_login VARCHAR
 );
 
-CREATE TABLE Busca (
-    FK_Itinerario_id INTEGER,
-    FK_Usuario_login VARCHAR
-);
-
-CREATE TABLE possui_veiculo_Usuario_historico (
+CREATE TABLE possui (
     FK_veiculo_id INTEGER,
-    FK_Usuario_login VARCHAR,
-    FK_historico_id INTEGER
+    FK_Usuario_login VARCHAR
 );
  
-ALTER TABLE Itinerario ADD CONSTRAINT FK_Itinerario_1
+ALTER TABLE carona ADD CONSTRAINT FK_carona_1
     FOREIGN KEY (FK_local_id)
     REFERENCES local (id)
     ON DELETE CASCADE ON UPDATE CASCADE;
  
-ALTER TABLE Registra ADD CONSTRAINT FK_Registra_0
-    FOREIGN KEY (FK_Itinerario_id)
-    REFERENCES Itinerario (id)
+ALTER TABLE possui ADD CONSTRAINT FK_possui_0
+    FOREIGN KEY (FK_carona_id)
+    REFERENCES carona (id)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE Registra ADD CONSTRAINT FK_Registra_1
+ALTER TABLE possui ADD CONSTRAINT FK_possui_1
     FOREIGN KEY (FK_Usuario_login)
     REFERENCES Usuario (login)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE Busca ADD CONSTRAINT FK_Busca_0
-    FOREIGN KEY (FK_Itinerario_id)
-    REFERENCES Itinerario (id)
-    ON DELETE SET NULL ON UPDATE CASCADE;
- 
-ALTER TABLE Busca ADD CONSTRAINT FK_Busca_1
-    FOREIGN KEY (FK_Usuario_login)
-    REFERENCES Usuario (login)
-    ON DELETE SET NULL ON UPDATE CASCADE;
- 
-ALTER TABLE possui_veiculo_Usuario_historico ADD CONSTRAINT FK_possui_veiculo_Usuario_historico_0
+ALTER TABLE possui ADD CONSTRAINT FK_possui_0
     FOREIGN KEY (FK_veiculo_id)
     REFERENCES veiculo (id)
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE possui_veiculo_Usuario_historico ADD CONSTRAINT FK_possui_veiculo_Usuario_historico_1
+ALTER TABLE possui ADD CONSTRAINT FK_possui_1
     FOREIGN KEY (FK_Usuario_login)
     REFERENCES Usuario (login)
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
- 
-ALTER TABLE possui_veiculo_Usuario_historico ADD CONSTRAINT FK_possui_veiculo_Usuario_historico_2
-    FOREIGN KEY (FK_historico_id)
-    REFERENCES historico (id)
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE SET NULL ON UPDATE CASCADE;
 ```
 
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
