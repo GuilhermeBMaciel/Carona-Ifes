@@ -1,5 +1,3 @@
-/* Lógico_1: */
-
 CREATE TABLE Usuario (
     login VARCHAR PRIMARY KEY,
     nome VARCHAR,
@@ -45,7 +43,7 @@ CREATE TABLE possui (
     FK_Usuario_login VARCHAR
 );
 
-CREATE TABLE possui (
+CREATE TABLE veiculo_motorista (
     FK_veiculo_id INTEGER,
     FK_motorista_FK_Usuario_login VARCHAR
 );
@@ -70,12 +68,12 @@ ALTER TABLE possui ADD CONSTRAINT FK_possui_1
     REFERENCES Usuario (login)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE possui ADD CONSTRAINT FK_possui_0
+ALTER TABLE veiculo_motorista ADD CONSTRAINT FK_veiculo_motorista_0
     FOREIGN KEY (FK_veiculo_id)
     REFERENCES veiculo (id)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE possui ADD CONSTRAINT FK_possui_1
+ALTER TABLE veiculo_motorista ADD CONSTRAINT FK_veiculo_motorista_1
     FOREIGN KEY (FK_motorista_FK_Usuario_login)
     REFERENCES motorista (FK_Usuario_login)
     ON DELETE SET NULL ON UPDATE CASCADE;
