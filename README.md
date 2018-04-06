@@ -154,12 +154,12 @@ CREATE TABLE veiculo (
     id INTEGER PRIMARY KEY
 );
 
-CREATE TABLE possui (
+CREATE TABLE possui_carona_usuario (
     FK_carona_id INTEGER,
     FK_Usuario_login VARCHAR
 );
 
-CREATE TABLE possui (
+CREATE TABLE possui_usuario_veiculo (
     FK_veiculo_id INTEGER,
     FK_Usuario_login VARCHAR
 );
@@ -169,22 +169,22 @@ ALTER TABLE carona ADD CONSTRAINT FK_carona_1
     REFERENCES local (id)
     ON DELETE CASCADE ON UPDATE CASCADE;
  
-ALTER TABLE possui ADD CONSTRAINT FK_possui_0
+ALTER TABLE possui_carona_usuario ADD CONSTRAINT FK_possui_carona_usuario_0
     FOREIGN KEY (FK_carona_id)
     REFERENCES carona (id)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE possui ADD CONSTRAINT FK_possui_1
+ALTER TABLE possui_carona_usuario ADD CONSTRAINT FK_possui_carona_usuario_1
     FOREIGN KEY (FK_Usuario_login)
     REFERENCES Usuario (login)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE possui ADD CONSTRAINT FK_possui_0
+ALTER TABLE possui_usuario_veiculo ADD CONSTRAINT FK_possui_usuario_veiculo_0
     FOREIGN KEY (FK_veiculo_id)
     REFERENCES veiculo (id)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE possui ADD CONSTRAINT FK_possui_1
+ALTER TABLE possui_usuario_veiculo ADD CONSTRAINT FK_possui_usuario_veiculo_1
     FOREIGN KEY (FK_Usuario_login)
     REFERENCES Usuario (login)
     ON DELETE SET NULL ON UPDATE CASCADE;
