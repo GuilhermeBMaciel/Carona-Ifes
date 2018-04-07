@@ -83,9 +83,9 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 - *email*: campo que armazena o email do usuario <br>
 - *matricula_ou_siape*: campo para armazenamento da matricula ou do siape. <br>
 - *senha*: campo que armazena a senha do usuario <br>
-- *Usuario_Tipo*: define se o usuario será um usuario regular que ira pegar caronas, ou se será um motorista <br>
-- *cnh*: armazenará o número de cnh do motorista <br>
 - *modo_motorista*: armazena um boolean, para saber se o usuário está no modo motorista ou não <br><br>
+*__MOTORISTA__*: Tabela que herda de usuario, e contém o cnh do motorista <br>
+- *cnh*: armazenará o número de cnh do motorista <br><br>
 *__CARONA__*: Tabela que contém os dados do itinerário <br>
 - *id*: campo que armazena o número para identificação do itinerário <br>
 - *vaga_motorista*: campo que armazena o nome do motorista de determinada carona <br>
@@ -104,11 +104,7 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 - *id*: campo que armazena o id do veículo. <br>
 - *modelo*: campo que armazena o nome do modelo do veículo <br> 
 - *cor*: campo que armazena a cor do veículo. <br><br>
-*__HISTORICO__*: Tabela que contém as avaliações dadas por usuários a outros usuários <br>
-- *nome_usuario*: campo que armazena o nome do usuario que fez a avaliação <br>
-- *id*: campo que armazena o id da avaliação (historico) <br>
-- *descricao*: campo que armazena a avaliação por extenso da experiencia deste usuario com o motorista<br> 
-- *nota*: de um a cinco, a nota dada ao motorista pela carona<br> 
+
 
 ### 6	MODELO LÓGICO<br>
 ![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/logico.PNG)
