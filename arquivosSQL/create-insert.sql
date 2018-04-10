@@ -1,82 +1,98 @@
--CREATE TABLE Usuario (
--    login VARCHAR PRIMARY KEY,
--    nome VARCHAR,
--    matricula_ou_siape VARCHAR,
--    telefone VARCHAR,
--    email VARCHAR,
--    modo_motorista BOOLEAN,
--    senha VARCHAR
--);
--
--CREATE TABLE carona (
--    vaga_motorista VARCHAR,
--    vaga_usuario INTEGER,
--    id INTEGER PRIMARY KEY,
--    tempo_ativo TIME,
--    avaliacao VARCHAR,
--    nota_avaliacao INTEGER,
--    FK_local_id INTEGER
--);
--
--CREATE TABLE local (
--    local_de_saida VARCHAR,
--    horario_saida TIME,
--    local_de_retorno VARCHAR,
--    horario_retorno TIME,
--    id INTEGER PRIMARY KEY
--);
--
--CREATE TABLE veiculo (
--    marca VARCHAR,
--    modelo VARCHAR,
--    cor VARCHAR,
--    id INTEGER PRIMARY KEY
--);
--
--CREATE TABLE motorista (
--    cnh VARCHAR,
--    FK_Usuario_login VARCHAR PRIMARY KEY
--);
--
--CREATE TABLE possui (
--    FK_carona_id INTEGER,
--    FK_Usuario_login VARCHAR
--);
--
--CREATE TABLE veiculo_motorista (
--    FK_veiculo_id INTEGER,
--    FK_motorista_FK_Usuario_login VARCHAR
--);
-- 
--ALTER TABLE carona ADD CONSTRAINT FK_carona_1
--    FOREIGN KEY (FK_local_id)
--    REFERENCES local (id)
--    ON DELETE CASCADE ON UPDATE CASCADE;
-- 
--ALTER TABLE motorista ADD CONSTRAINT FK_motorista_1
--    FOREIGN KEY (FK_Usuario_login)
--    REFERENCES Usuario (login)
--    ON DELETE CASCADE ON UPDATE CASCADE;
-- 
--ALTER TABLE possui ADD CONSTRAINT FK_possui_0
--    FOREIGN KEY (FK_carona_id)
--    REFERENCES carona (id)
--    ON DELETE SET NULL ON UPDATE CASCADE;
-- 
--ALTER TABLE possui ADD CONSTRAINT FK_possui_1
--    FOREIGN KEY (FK_Usuario_login)
--    REFERENCES Usuario (login)
--    ON DELETE SET NULL ON UPDATE CASCADE;
-- 
--ALTER TABLE veiculo_motorista ADD CONSTRAINT FK_veiculo_motorista_0
--    FOREIGN KEY (FK_veiculo_id)
--    REFERENCES veiculo (id)
--    ON DELETE SET NULL ON UPDATE CASCADE;
-- 
--ALTER TABLE veiculo_motorista ADD CONSTRAINT FK_veiculo_motorista_1
--    FOREIGN KEY (FK_motorista_FK_Usuario_login)
--    REFERENCES motorista (FK_Usuario_login)
--    ON DELETE SET NULL ON UPDATE CASCADE; 
+/* Lógico_1: */
+
+CREATE TABLE Usuario (
+    login VARCHAR PRIMARY KEY,
+    nome VARCHAR,
+    matricula_ou_siape VARCHAR,
+    telefone VARCHAR,
+    email VARCHAR,
+    senha VARCHAR
+);
+
+CREATE TABLE carona (
+    id SERIAL PRIMARY KEY,
+    avaliacao VARCHAR,
+    nota_avaliacao INTEGER,
+    FK_local_id SERIAL
+);
+
+CREATE TABLE local (
+    local_de_saida VARCHAR,
+    horario_saida TIME,
+    local_de_retorno VARCHAR,
+    horario_retorno TIME,
+    id SERIAL PRIMARY KEY
+);
+
+CREATE TABLE veiculo (
+    marca VARCHAR,
+    modelo VARCHAR,
+    cor VARCHAR,
+    id SERIAL PRIMARY KEY
+);
+
+CREATE TABLE motorista (
+    cnh VARCHAR,
+    FK_Usuario_login VARCHAR PRIMARY KEY
+);
+
+CREATE TABLE consulta (
+    FK_carona_id SERIAL,
+    FK_Usuario_login VARCHAR
+);
+
+CREATE TABLE possui (
+    FK_veiculo_id SERIAL,
+    FK_motorista_FK_Usuario_login VARCHAR
+);
+
+CREATE TABLE registra (
+    FK_carona_id SERIAL,
+    FK_motorista_FK_Usuario_login VARCHAR
+);
+ 
+ALTER TABLE carona ADD CONSTRAINT FK_carona_1
+    FOREIGN KEY (FK_local_id)
+    REFERENCES local (id)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+ALTER TABLE motorista ADD CONSTRAINT FK_motorista_1
+    FOREIGN KEY (FK_Usuario_login)
+    REFERENCES Usuario (login)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+ALTER TABLE consulta ADD CONSTRAINT FK_consulta_0
+    FOREIGN KEY (FK_carona_id)
+    REFERENCES carona (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE consulta ADD CONSTRAINT FK_consulta_1
+    FOREIGN KEY (FK_Usuario_login)
+    REFERENCES Usuario (login)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE possui ADD CONSTRAINT FK_possui_0
+    FOREIGN KEY (FK_veiculo_id)
+    REFERENCES veiculo (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE possui ADD CONSTRAINT FK_possui_1
+    FOREIGN KEY (FK_motorista_FK_Usuario_login)
+    REFERENCES motorista (FK_Usuario_login)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE registra ADD CONSTRAINT FK_registra_0
+    FOREIGN KEY (FK_carona_id)
+    REFERENCES carona (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE registra ADD CONSTRAINT FK_registra_1
+    FOREIGN KEY (FK_motorista_FK_Usuario_login)
+    REFERENCES motorista (FK_Usuario_login)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+    
+    
+    /* Inserts */
 
 INSERT INTO usuario (login, nome, matricula_ou_siape, telefone, email, modo_motorista, senha)
 VALUES  ('luiz12', 'Luiz Gonçalves', '20181bsi0178', '(27)99626375','luizgoncalves@gmail.com', true, 'password'),
