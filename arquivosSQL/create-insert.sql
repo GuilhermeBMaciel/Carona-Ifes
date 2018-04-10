@@ -105,22 +105,10 @@ VALUES  ('luiz12', 'Luiz Gonçalves', '20181bsi0178', '(27)99626375','luizgoncal
 ('ciare', 'Luciano Pereira', '20181bsi0186', '(27)99644375', 'lucianopereira@gmail.com', 'password8'),
 ('mmlo', 'Marcelo Silva', '20181bsi0187', '(27)99666675', 'marcelosilva@gmail.com', 'password9');
 
-INSERT INTO motorista (cnh) VALUES
+INSERT INTO motorista (cnh, fk_usuario_login) VALUES
 ('59089813750', 'luiz12'),
 ('99174897977', 'carlos1'),
 ('52878184605', 'clara2');
-
-INSERT INTO carona (avaliacao, nota_avaliacao) VALUES 
-('bom motorista', 4),
-('pessima carona', 1),
-('horrivel', 1),
-('nada', 3),
-('boa carona', 3),
-('muito bom!', 5),
-('excelente.', 5),
-('nao gostei', 1),
-('recomendo', 4),
-('gente boa', 4);
 
 INSERT INTO local (local_de_saida, horario_saida, local_de_retorno, horario_retorno) VALUES 
 ('em frente ao ifes-serra', '11:00:00', 'perto de tal lugar', '18:00:00'),
@@ -133,6 +121,18 @@ INSERT INTO local (local_de_saida, horario_saida, local_de_retorno, horario_reto
 ('ifes', '17:00:00', 'perto de tal lugar', '21:00:00'),
 ('ifes-serra', '17:30:00', 'perto de tal lugar', '22:00:00'),
 ('em frente tal escola', '14:00:00', 'porta de tal shopping', '15:00:00');
+
+INSERT INTO carona (avaliacao, nota_avaliacao, fk_local_id) VALUES 
+('bom motorista', 4, 41),
+('pessima carona', 1, 42),
+('horrivel', 1, 43),
+('nada', 3, 44),
+('boa carona', 3, 45),
+('muito bom!', 5, 46),
+('excelente.', 5, 47),
+('nao gostei', 1, 48),
+('recomendo', 4, 49),
+('gente boa', 4, 50);
 
 INSERT INTO veiculo (marca, modelo, cor) VALUES 
 ('Fiat', 'Palio', 'azul'),
