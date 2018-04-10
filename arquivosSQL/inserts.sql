@@ -39,8 +39,6 @@ INSERT INTO carona (avaliacao, nota_avaliacao, fk_local_id) VALUES
 ('recomendo', 4, 49),
 ('gente boa', 4, 50);
 
-select * from local;
-
 INSERT INTO veiculo (marca, modelo, cor) VALUES 
 ('Fiat', 'Palio', 'azul'),
 ('Fiat', 'Uno', 'preto'),
