@@ -211,6 +211,9 @@ ALTER TABLE registra ADD CONSTRAINT FK_registra_1
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
 - [Script SQL](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/tree/master/arquivosSQL)
 ```
+truncate carona restart identity cascade;
+truncate veiculo restart identity cascade;
+truncate local restart identity cascade;
 INSERT INTO usuario (login, nome, matricula_ou_siape, telefone, email, senha)
 VALUES  ('luiz12', 'Luiz Gonçalves', '20181bsi0178', '(27)99626375','luizgoncalves@gmail.com', 'password'),
 ('carlos1', 'Carlos Patricio', '20181bsi0179', '(27)88626375', 'carlospatricio@gmail.com', 'password1'),
@@ -241,16 +244,16 @@ INSERT INTO local (local_de_saida, horario_saida, local_de_retorno, horario_reto
 ('em frente tal escola', '14:00:00', 'porta de tal shopping', '15:00:00');
 
 INSERT INTO carona (avaliacao, nota_avaliacao, fk_local_id) VALUES 
-('bom motorista', 4, 41),
-('pessima carona', 1, 42),
-('horrivel', 1, 43),
-('nada', 3, 44),
-('boa carona', 3, 45),
-('muito bom!', 5, 46),
-('excelente.', 5, 47),
-('nao gostei', 1, 48),
-('recomendo', 4, 49),
-('gente boa', 4, 50);
+('bom motorista', 4, 1),
+('pessima carona', 1, 2),
+('horrivel', 1, 3),
+('nada', 3, 4),
+('boa carona', 3, 5),
+('muito bom!', 5, 6),
+('excelente.', 5, 7),
+('nao gostei', 1, 8),
+('recomendo', 4, 9),
+('gente boa', 4, 10);
 
 INSERT INTO veiculo (marca, modelo, cor) VALUES 
 ('Fiat', 'Palio', 'azul'),
@@ -270,6 +273,30 @@ INSERT INTO veiculo (marca, modelo, cor) VALUES
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
 #### 9.1	GERACAO DE DADOS (MÍNIMO DE 10 REGISTROS PARA CADA TABELA NO BANCO DE DADOS)<br>
+```
+    select * from usuario;
+```
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_usuario.PNG)
+
+```
+    select * from motorista;
+```
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_motorista.PNG)
+
+```
+    select * from veiculo;
+```
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_veiculo.PNG)
+
+```
+    select * from local;
+```
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_local.PNG)
+
+```
+    select * from carona;
+```
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_carona.PNG)
 
 ## Data de Entrega: (18/09/2017)
 
