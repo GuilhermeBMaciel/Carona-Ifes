@@ -82,8 +82,7 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 - *telefone*: campo que armazena o telefone do usuario <br>
 - *email*: campo que armazena o email do usuario <br>
 - *matricula_ou_siape*: campo para armazenamento da matricula ou do siape. <br>
-- *senha*: campo que armazena a senha do usuario <br>
-- *modo_motorista*: armazena um boolean, para saber se o usuário está no modo motorista ou não <br><br>
+- *senha*: campo que armazena a senha do usuario <br><br>
 *__MOTORISTA__*: Tabela que herda de usuario, e contém o cnh do motorista <br>
 - *cnh*: armazenará o número de cnh do motorista <br><br>
 *__CARONA__*: Tabela que contém os dados do itinerário <br>
@@ -113,8 +112,6 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 <br>
 
 ```
-/* Lógico_1: */
-
 CREATE TABLE Usuario (
     login VARCHAR PRIMARY KEY,
     nome VARCHAR,
