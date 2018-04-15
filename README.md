@@ -61,15 +61,11 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
     
     a) Tabela "local": foi criada uma tabela local a parte de "carona", para que possa ser reaproveitada em mais de um itinerário,
     casa haja, tendo em vista que mais uma pessoa pode acabar registrando uma carona com o mesmo destino e local de saida. <br>
-    
-    b) Tabela "usuario"; atributo "modo_motorista": O atributo "modo_motorista" na tabela usuario representa o modo como o usuário do 
-    sistema o está acessando, mostrando informações que sejam relevantes para o seu modo de utilização, sendo estes modos motorista ou 
-    usuario para caronas. <br>
-    
-    c) Tabela "motorista": a tabela motorista foi incluida no modelo devido a presença do "cnh" em alguns usuários. Os usuários
+      
+    b) Tabela "motorista": a tabela motorista foi incluida no modelo devido a presença do "cnh" em alguns usuários. Os usuários
     "motoristas" possuem todos os atributos dos "usuarios" regulares, com o acrescimo do "cnh".<br>
     
-    d) Tabela "carona"; atributo "avaliacao": serve para armazenar a avalição por escrita feita pelos usuários para um determinado
+    c) Tabela "carona"; atributo "avaliacao": serve para armazenar a avalição por escrita feita pelos usuários para um determinado
     motorista, servindo como um historico para este motorista, e possíveis futuras consultas por outros usuários.
    
 
