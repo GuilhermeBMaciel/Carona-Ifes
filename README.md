@@ -87,16 +87,16 @@ CREATE TABLE carona (
     id SERIAL PRIMARY KEY,
     avaliacao VARCHAR,
     nota_avaliacao INTEGER,
-    FK_localizacao_id SERIAL,
-    qtd_vagas INTEGER
+    qtd_vagas INTEGER,
+    FK_localizacao_id SERIAL
 );
 
 CREATE TABLE localizacao (
-    cep_saida VARCHAR,
-    horario_chegada TIME,
     horario_saida TIME,
-    cep_chegada VARCHAR,
-    id SERIAL PRIMARY KEY
+    horario_chegada TIME,
+    id SERIAL PRIMARY KEY,
+    FK_cep_cep_chegada VARCHAR,
+    FK_cep_cep_saida VARCHAR
 );
 
 CREATE TABLE veiculo (
@@ -109,6 +109,12 @@ CREATE TABLE veiculo (
 CREATE TABLE motorista (
     cnh VARCHAR,
     FK_Usuario_login VARCHAR PRIMARY KEY
+);
+
+CREATE TABLE cep (
+    cep_chegada VARCHAR,
+    cep_saida VARCHAR,
+    PRIMARY KEY (cep_chegada, cep_saida)
 );
 
 CREATE TABLE consulta (
@@ -129,6 +135,11 @@ CREATE TABLE registra (
 ALTER TABLE carona ADD CONSTRAINT FK_carona_1
     FOREIGN KEY (FK_localizacao_id)
     REFERENCES localizacao (id)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+ALTER TABLE localizacao ADD CONSTRAINT FK_localizacao_1
+    FOREIGN KEY (FK_cep_cep_chegada, FK_cep_cep_saida)
+    REFERENCES cep (cep_chegada, cep_saida)
     ON DELETE CASCADE ON UPDATE CASCADE;
  
 ALTER TABLE motorista ADD CONSTRAINT FK_motorista_1
