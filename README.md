@@ -88,14 +88,15 @@ CREATE TABLE carona (
     id SERIAL PRIMARY KEY,
     avaliacao VARCHAR,
     nota_avaliacao INTEGER,
-    FK_local_id SERIAL
+    FK_localizacao_id SERIAL,
+    qtd_vagas INTEGER
 );
 
-CREATE TABLE local (
-    local_de_saida VARCHAR,
+CREATE TABLE localizacao (
+    cep_saida VARCHAR,
+    horario_chegada TIME,
     horario_saida TIME,
-    local_de_retorno VARCHAR,
-    horario_retorno TIME,
+    cep_chegada VARCHAR,
     id SERIAL PRIMARY KEY
 );
 
@@ -127,8 +128,8 @@ CREATE TABLE registra (
 );
  
 ALTER TABLE carona ADD CONSTRAINT FK_carona_1
-    FOREIGN KEY (FK_local_id)
-    REFERENCES local (id)
+    FOREIGN KEY (FK_localizacao_id)
+    REFERENCES localizacao (id)
     ON DELETE CASCADE ON UPDATE CASCADE;
  
 ALTER TABLE motorista ADD CONSTRAINT FK_motorista_1
@@ -164,7 +165,7 @@ ALTER TABLE registra ADD CONSTRAINT FK_registra_0
 ALTER TABLE registra ADD CONSTRAINT FK_registra_1
     FOREIGN KEY (FK_motorista_FK_Usuario_login)
     REFERENCES motorista (FK_Usuario_login)
-    ON DELETE SET NULL ON UPDATE CASCADE; 
+    ON DELETE SET NULL ON UPDATE CASCADE;
 ```
 
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
@@ -191,29 +192,20 @@ INSERT INTO motorista (cnh, fk_usuario_login) VALUES
 ('99174897977', 'carlos1'),
 ('52878184605', 'clara2');
 
-INSERT INTO local (local_de_saida, horario_saida, local_de_retorno, horario_retorno) VALUES 
-('em frente ao ifes-serra', '11:00:00', 'perto de tal lugar', '18:00:00'),
-('em frente ao ifes-serra', '11:30:00', 'perto de tal lugar', '20:00:00'),
-('rua treze', '12:00:00', 'rua doze', '18:00:00'),
-('avenida brasil', '13:00:00', 'perto de tal lugar', '18:00:00'),
-('avenida dois', '14:00:00', 'perto de tal lugar', '19:00:00'),
-('em frente ao ifes-serra', '15:00:00', 'perto de tal lugar', '20:00:00'),
-('vila velha', '16:00:00', 'ifes-serra', '23:00:00'),
-('ifes', '17:00:00', 'perto de tal lugar', '21:00:00'),
-('ifes-serra', '17:30:00', 'perto de tal lugar', '22:00:00'),
-('em frente tal escola', '14:00:00', 'porta de tal shopping', '15:00:00');
+INSERT INTO localizacao (cep_saida, horario_chegada, horario_saida, cep_chegada) VALUES 
+();
 
-INSERT INTO carona (avaliacao, nota_avaliacao, fk_local_id) VALUES 
-('bom motorista', 4, 1),
-('pessima carona', 1, 2),
-('horrivel', 1, 3),
-('nada', 3, 4),
-('boa carona', 3, 5),
-('muito bom!', 5, 6),
-('excelente.', 5, 7),
-('nao gostei', 1, 8),
-('recomendo', 4, 9),
-('gente boa', 4, 10);
+INSERT INTO carona (avaliacao, nota_avaliacao, qtd_vagas, fk_local_id) VALUES 
+('bom motorista', 4, 3, 1),
+('pessima carona', 1, 2, 2),
+('horrivel', 1, 3, 3),
+('nada', 3, 1, 4),
+('boa carona', 3, 2, 5),
+('muito bom!', 5, 2, 6),
+('excelente.', 5, 3, 7),
+('nao gostei', 1, 2, 8),
+('recomendo', 4, 1, 9),
+('gente boa', 4, 1, 10);
 
 INSERT INTO veiculo (marca, modelo, cor) VALUES 
 ('Fiat', 'Palio', 'azul'),
