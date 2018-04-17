@@ -22,7 +22,7 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 
 ### 5	MODELO CONCEITUAL<br>
 #### 5.1 NOTACAO ENTIDADE RELACIONAMENTO
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/conceitual.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/conceitual.png)
     
 #### 5.3 DECISÕES DE PROJETO
     
