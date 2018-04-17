@@ -22,7 +22,7 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 
 ### 5	MODELO CONCEITUAL<br>
 #### 5.1 NOTACAO ENTIDADE RELACIONAMENTO
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/conceitual.png)
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/conceitual.PNG)
     
 #### 5.3 DECISÕES DE PROJETO
     
@@ -39,7 +39,6 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 #### 5.4 DESCRIÇÃO DOS DADOS 
 
 *__USUARIO__*: Tabela que contém os dados do usuário <br>
-- *id*: campo que armazena o id do usuario <br>
 - *login*: campo que armazena o login do usuario <br>
 - *nome*: campo que armazena o nome do usuario <br>
 - *telefone*: campo que armazena o telefone do usuario <br>
@@ -50,17 +49,17 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 - *cnh*: armazenará o número de cnh do motorista <br><br>
 *__CARONA__*: Tabela que contém os dados do itinerário <br>
 - *id*: campo que armazena o número para identificação do itinerário <br>
-- *vaga_motorista*: campo que armazena o nome do motorista de determinada carona <br>
-- *vaga_usuario*: campo que armazena a quantidade de vagas disponíveis para este itinerário <br>
 - *avaliacao*: campo que armazena a avaliação por extenso da carona realizada <br>
 - *nota_avaliacao*: campo que armazena a nota de 1 a 5 da avaliação do motorista <br>
-- *tempo_ativo*: campo que armazena o tempo para que o itinerário permaneça ativo <br><br>
-*__LOCAL__*: Tabela que contém os dados de localização das caronas <br>
+- *qtd_vagas*: número inteiro que armazenara a quantidade de vagsa para determinada carona <br>
+- *tempo_ativo*: campo que armazena o tempo para que o carona permaneça ativo <br><br>
+*__LOCALIZACAO__*: Tabela que contém os dados de localização das caronas <br>
 - *id*: campo que armazena o id da localização <br>
-- *local_de_saida*: campo que armazena a posição de saida da carona <br>
-- *horario_retorno*: campo que armazena a hora de retorno <br>
-- *horario_saida*: campo para o armazenamento da hora de saida  <br>
-- *local_de_retorno*: campo que armazena a posição para o retorno da carona <br><br>
+- *horario_chegada*: campo que armazena a hora de retorno <br>
+- *horario_saida*: campo para o armazenamento da hora de saida  <br><br>
+*__CEP__*: Tabela que contém os dados referentes aos ceps <br>
+- *cep_saida*: campo que armazena o numero do cep referente a localização de onde a carona sairá, ou seja, terá inicio <br>
+- *cep_chegada*: campo que armazeno o numero do cep referente a localização de onde a carona chegará, ou seja, terá fim <br><br>
 *__VEICULO__*: Tabela que contém os dados dos veículos dos motoristas <br>
 - *marca*: campo que armazena a marca do veículo <br>
 - *id*: campo que armazena o id do veículo. <br>
@@ -186,6 +185,9 @@ VALUES  ('luiz12', 'Luiz Gonçalves', '20181bsi0178', '(27)99626375','luizgoncal
 ('pedro12', 'Pedro Paulo', '20181bsi0185', '(27)94326375', 'pedropaulo@gmail.com', 'password7'),
 ('ciare', 'Luciano Pereira', '20181bsi0186', '(27)99644375', 'lucianopereira@gmail.com', 'password8'),
 ('mmlo', 'Marcelo Silva', '20181bsi0187', '(27)99666675', 'marcelosilva@gmail.com', 'password9');
+
+INSERT INTO cep (cep_saida, cep_chegada) VALUES
+();
 
 INSERT INTO motorista (cnh, fk_usuario_login) VALUES
 ('59089813750', 'luiz12'),
