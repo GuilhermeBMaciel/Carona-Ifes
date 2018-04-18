@@ -195,20 +195,23 @@ VALUES  ('luiz12', 'Luiz Gonçalves', '20181bsi0178', '(27)99626375','luizgoncal
 ('furto', 'Marcela Furtado', '20181bsi0184', '(27)91626375', 'marcelafurtado@gmail.com', 'password6'),
 ('pedro12', 'Pedro Paulo', '20181bsi0185', '(27)94326375', 'pedropaulo@gmail.com', 'password7'),
 ('ciare', 'Luciano Pereira', '20181bsi0186', '(27)99644375', 'lucianopereira@gmail.com', 'password8'),
-('calids', 'Carolina Dias', '20181bsi0187', '(27)99666676', 'carolinadias@gmail.com', 'password9');
-('lssa', 'Lucas Santana', '20181bsi0188', '(27)99666677', 'lucasantana@gmail.com', 'password10');
-('pecalo', 'Pedro Carvalho', '20181bsi0189', '(27)99666678', 'pedrocarvalho@gmail.com', 'password11');
-('hecaso', 'Henrique Cardoso', '20181bsi0190', '(27)99666679', 'henriquecardoso@gmail.com', 'password12');
-('mago', 'Marcela Gomes', '20181bsi0191', '(27)99666680', 'marcelagomes@gmail.com', 'password13');
-('dummo', 'Luiz Dummont', '20181bsi0192', '(27)99666681', 'luizdummont@gmail.com', 'password14');
-('valmeida', 'Valdenir Almeida', '20181bsi0193', '(27)99666682', 'valdeniralmeida@gmail.com', 'password15');
-('silva31', 'Carol Silva', '20181bsi0194', '(27)99666683', 'carolsilva@gmail.com', 'password16');
-('furbi', 'Luiza Furbino', '20181bsi0195', '(27)99666684', 'luizafurbino@gmail.com', 'password17');
-('ana3', 'Ana Souza', '20181bsi0196', '(27)99666685', 'anasouza@gmail.com', 'password18');
+('calids', 'Carolina Dias', '20181bsi0187', '(27)99666676', 'carolinadias@gmail.com', 'password9'),
+('lssa', 'Lucas Santana', '20181bsi0188', '(27)99666677', 'lucasantana@gmail.com', 'password10'),
+('pecalo', 'Pedro Carvalho', '20181bsi0189', '(27)99666678', 'pedrocarvalho@gmail.com', 'password11'),
+('hecaso', 'Henrique Cardoso', '20181bsi0190', '(27)99666679', 'henriquecardoso@gmail.com', 'password12'),
+('mago', 'Marcela Gomes', '20181bsi0191', '(27)99666680', 'marcelagomes@gmail.com', 'password13'),
+('dummo', 'Luiz Dummont', '20181bsi0192', '(27)99666681', 'luizdummont@gmail.com', 'password14'),
+('valmeida', 'Valdenir Almeida', '20181bsi0193', '(27)99666682', 'valdeniralmeida@gmail.com', 'password15'),
+('silva31', 'Carol Silva', '20181bsi0194', '(27)99666683', 'carolsilva@gmail.com', 'password16'),
+('furbi', 'Luiza Furbino', '20181bsi0195', '(27)99666684', 'luizafurbino@gmail.com', 'password17'),
+('ana3', 'Ana Souza', '20181bsi0196', '(27)99666685', 'anasouza@gmail.com', 'password18'),
 ('berta', 'Roberta Cruz', '20181bsi0197', '(27)99666686', 'robertacruz@gmail.com', 'password19');
 
 INSERT INTO cep (cep_saida, cep_chegada) VALUES
-();
+('29173-087','29016-020'),
+('29173-087','29090-560'),
+('29173-087','29060-060'),
+('29173-087','29175-789');
 
 INSERT INTO motorista (cnh, fk_usuario_login) VALUES
 ('59089813750', 'luiz12'),
@@ -222,8 +225,17 @@ INSERT INTO motorista (cnh, fk_usuario_login) VALUES
 ('16437512555', 'dummo'),
 ('65988821658', 'furto');
 
-INSERT INTO localizacao (cep_saida, horario_chegada, horario_saida, cep_chegada) VALUES 
-();
+INSERT INTO localizacao (fk_cep_cep_saida, horario_chegada, horario_saida, fk_cep_cep_chegada) VALUES 
+('29173-087','14:30','13:00','29016-020'),
+('29173-087','17:00','16:30','29175-789'),
+('29173-087','15:00','14:00','29090-560'),
+('29173-087','18:00','17:30','29060-060'),
+('29173-087','15:00','13:00','29016-020'),
+('29173-087','18:00','17:00','29175-789'),
+('29173-087','11:00','10:00','29090-560'),
+('29173-087','9:00','10:30','29060-060'),
+('29173-087','9:00','8:00','29090-560'),
+('29173-087','8:30','7:00','29060-060');
 
 INSERT INTO carona (avaliacao, nota_avaliacao, qtd_vagas, fk_localizacao_id) VALUES 
 ('bom motorista', 4, 3, 1),
