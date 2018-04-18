@@ -283,14 +283,18 @@ INSERT INTO veiculo (marca, modelo, cor) VALUES
 ![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_veiculo.PNG)
 
 ```
-    select * from local;
+    select * from localizacao;
 ```
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_local.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_localizacao.PNG)
 
 ```
     select * from carona;
 ```
 ![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_carona.PNG)
+```
+    select * from cep;
+```
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_cep.PNG)
 
 ## Data de Entrega: (18/09/2017)
 
