@@ -74,6 +74,8 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 <br>
 
 ```
+/* Lógico_1: */
+
 CREATE TABLE Usuario (
     login VARCHAR PRIMARY KEY,
     nome VARCHAR,
@@ -95,8 +97,7 @@ CREATE TABLE localizacao (
     horario_saida TIME,
     horario_chegada TIME,
     id SERIAL PRIMARY KEY,
-    FK_cep_cep_chegada VARCHAR,
-    FK_cep_cep_saida VARCHAR
+    FK_cep_cep VARCHAR
 );
 
 CREATE TABLE veiculo (
@@ -112,9 +113,10 @@ CREATE TABLE motorista (
 );
 
 CREATE TABLE cep (
-    cep_chegada VARCHAR,
-    cep_saida VARCHAR,
-    PRIMARY KEY (cep_chegada, cep_saida)
+    cep VARCHAR PRIMARY KEY,
+    municipio VARCHAR,
+    bairro VARCHAR,
+    rua VARCHAR
 );
 
 CREATE TABLE consulta (
@@ -138,8 +140,8 @@ ALTER TABLE carona ADD CONSTRAINT FK_carona_1
     ON DELETE CASCADE ON UPDATE CASCADE;
  
 ALTER TABLE localizacao ADD CONSTRAINT FK_localizacao_1
-    FOREIGN KEY (FK_cep_cep_chegada, FK_cep_cep_saida)
-    REFERENCES cep (cep_chegada, cep_saida)
+    FOREIGN KEY (FK_cep_cep)
+    REFERENCES cep (cep)
     ON DELETE CASCADE ON UPDATE CASCADE;
  
 ALTER TABLE motorista ADD CONSTRAINT FK_motorista_1
