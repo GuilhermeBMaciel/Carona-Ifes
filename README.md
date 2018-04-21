@@ -209,11 +209,27 @@ VALUES  ('luiz12', 'Luiz Gonçalves', '20181bsi0178', '(27)99626375','luizgoncal
 ('ana3', 'Ana Souza', '20181bsi0196', '(27)99666685', 'anasouza@gmail.com', 'password18'),
 ('berta', 'Roberta Cruz', '20181bsi0197', '(27)99666686', 'robertacruz@gmail.com', 'password19');
 
-INSERT INTO cep (cep_saida, cep_chegada) VALUES
-('29173-087','29016-020'),
-('29173-087','29090-560'),
-('29173-087','29060-060'),
-('29173-087','29175-789');
+INSERT INTO cep (cep,municipio,bairro,rua) VALUES
+('29173-087','Serra','Manguinhos','Rodovia ES-010'),
+('29025-220','Vitoria','Vila Rubim','Avenida Duarte Lemos'),
+('29070-440','Vitoria','Maria Ortiz','Avenida Professor Fernando Duarte Rabelo'),
+('29045-300','Vitoria','Santa Luiza','Rua José Farias'),
+('29166-200','Serra','Barcelona','Avenida Região Sudeste'),
+('29045-402','Vitoria','Santa Luiza','Avenida Nossa Senhora da Penha'),
+('29172-105','Serra','Feu Rosa','Rua dos Cravos'),
+('29045-460','Vitoria','Consolação','Avenida Marechal Campos'),
+('29122-041','Vilha Velha','Glória','Rua Santa Terezinha'),
+('29168-600','Serra','Porto Canoa','Avenida Brasília'),
+('29164-050','Serra','Jardim Limoeiro','Avenida Lourival Nunes'),
+('29055-260','Vitoria','Praia do canto','Rua Aleixo Netto'),
+('29060-500','Vitoria','Jardim da penha','Rua Darcy Grijó'),
+('29043-405','Vitória','Tabuazeiro','Avenida Coronel José Martins de Figueiredo'),
+('29172-015','Serra','Feu Rosa','Rua das Avencas'),
+('29171-237','Serra','Serra Dourada II','Avenida Brasília'),
+('29122-030','Vila Velha','Glória','Avenida Getúlio Vargas'),
+('29106-595','Vila Velha','Cristovão Colombo','Rua Cristovão Colombo'),
+('29152-427','Cariacica','Tucum','Rua Anselmo Lage'),
+('29150-340','Cariacica','Itacibá','Rua Anselmo Modenesi');
 
 INSERT INTO motorista (cnh, fk_usuario_login) VALUES
 ('59089813750', 'luiz12'),
@@ -227,17 +243,32 @@ INSERT INTO motorista (cnh, fk_usuario_login) VALUES
 ('16437512555', 'dummo'),
 ('65988821658', 'furto');
 
-INSERT INTO localizacao (fk_cep_cep_saida, horario_chegada, horario_saida, fk_cep_cep_chegada) VALUES 
-('29173-087','14:30','13:00','29016-020'),
-('29173-087','17:00','16:30','29175-789'),
-('29173-087','15:00','14:00','29090-560'),
-('29173-087','18:00','17:30','29060-060'),
-('29173-087','15:00','13:00','29016-020'),
-('29173-087','18:00','17:00','29175-789'),
-('29173-087','11:00','10:00','29090-560'),
-('29173-087','9:00','10:30','29060-060'),
-('29173-087','9:00','8:00','29090-560'),
-('29173-087','8:30','7:00','29060-060');
+INSERT INTO localizacao (horario_saida, horario_chegada, fk_cep_cep) VALUES 
+('13:00','14:00','29173-087'),
+('16:00','17:30','29025-220'),
+('13:00','14:00','29070-440'),
+('17:00','18:30','29045-300'),
+('6:00','7:30','29166-200'),
+('8:00','9:00','29045-402'),
+('7:40','9:00','29172-105'),
+('8:30','10:00','29045-460'),
+('5:00','7:30','29122-041'),
+('7:30','9:00','29168-600'),
+('10:00','11:30','29164-050'),
+('15:00','16:30','29055-260'),
+('11:20','12:50','29060-500'),
+('10:00','11:00','29043-405'),
+('8:40','10:00','29172-015'),
+('6:30','8:00','29171-237'),
+('15:00','17:10','29122-030'),
+('9:00','10:30','29106-595'),
+('5:30','7:00','29152-427'),
+('13:00','14:30','29150-340'),
+('11:00','12:00','29173-087'),
+('5:00','7:30','29173-087'),
+('6:00','7:30','29025-220'),
+('5:00','7:30','29025-220');
+
 
 INSERT INTO carona (avaliacao, nota_avaliacao, qtd_vagas, fk_localizacao_id) VALUES 
 ('bom motorista', 4, 3, 1),
