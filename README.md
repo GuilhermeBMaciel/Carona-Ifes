@@ -254,9 +254,9 @@ INSERT INTO localizacao (horario_saida, horario_chegada) VALUES
 ('08:00','22:00'),
 ('09:00','12:00'),
 ('10:20','13:00'),
-('12:00','19:00'),
+('12:00','19:00');
 
-INSERT INTO possui (FK_cep_cep, FK_localizacao_id) VALUES
+INSERT INTO possui (fk_cep_cep, fk_localizacao_id) VALUES
 ('29173-087', '1'),
 ('29025-220', '1'),
 ('29173-087', '2'),
@@ -276,7 +276,7 @@ INSERT INTO possui (FK_cep_cep, FK_localizacao_id) VALUES
 ('29173-087', '9'),
 ('29168-600', '9'),
 ('29164-050', '10'),
-('29173-087', '10'),
+('29173-087', '10');
 
 INSERT INTO carona (avaliacao, nota_avaliacao, qtd_vagas, fk_localizacao_id) VALUES 
 ('bom motorista', 4, 3, 1),
