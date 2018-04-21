@@ -22,11 +22,11 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 
 ### 5	MODELO CONCEITUAL<br>
 #### 5.1 NOTACAO ENTIDADE RELACIONAMENTO
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/conceitual.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/conceitual.png)
     
 #### 5.3 DECISÕES DE PROJETO
     
-    a) Tabela "local": foi criada uma tabela local a parte de "carona", para que possa ser reaproveitada em mais de um itinerário,
+    a) Tabela "localizacao": foi criada uma tabela local a parte de "carona", para que possa ser reaproveitada em mais de um itinerário,
     casa haja, tendo em vista que mais uma pessoa pode acabar registrando uma carona com o mesmo destino e local de saida. <br>
       
     b) Tabela "motorista": a tabela motorista foi incluida no modelo devido a presença do "cnh" em alguns usuários. Os usuários
@@ -34,6 +34,9 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
     
     c) Tabela "carona"; atributo "avaliacao": serve para armazenar a avalição por escrita feita pelos usuários para um determinado
     motorista, servindo como um historico para este motorista, e possíveis futuras consultas por outros usuários.
+    
+    d) Tabela "cep": a tabela cep serve com o propósito de ser a fonte bruta de dados de cep, municipio, bairro e rua dos endereços de
+    destino e partida das caronas.
    
 
 #### 5.4 DESCRIÇÃO DOS DADOS 
@@ -58,8 +61,10 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 - *horario_chegada*: campo que armazena a hora de retorno <br>
 - *horario_saida*: campo para o armazenamento da hora de saida  <br><br>
 *__CEP__*: Tabela que contém os dados referentes aos ceps <br>
-- *cep_saida*: campo que armazena o numero do cep referente a localização de onde a carona sairá, ou seja, terá inicio <br>
-- *cep_chegada*: campo que armazeno o numero do cep referente a localização de onde a carona chegará, ou seja, terá fim <br><br>
+- *cep*: campo que armazena o numero do cep <br>
+- *municipio*: campo que armazenará o nome do municipio de determinado cep <br>
+- *bairro*: campo que armazenará o nome do bairro de determinado cep <br>
+- *rua*: campo que armazenará o nome da rua de determinado cep <br><br>
 *__VEICULO__*: Tabela que contém os dados dos veículos dos motoristas <br>
 - *marca*: campo que armazena a marca do veículo <br>
 - *id*: campo que armazena o id do veículo. <br>
