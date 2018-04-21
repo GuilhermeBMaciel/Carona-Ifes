@@ -74,8 +74,6 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 <br>
 
 ```
-/* Lógico_1: */
-
 CREATE TABLE Usuario (
     login VARCHAR PRIMARY KEY,
     nome VARCHAR,
@@ -94,10 +92,9 @@ CREATE TABLE carona (
 );
 
 CREATE TABLE localizacao (
-    horario_saida TIME,
-    horario_chegada TIME,
-    id SERIAL PRIMARY KEY,
-    FK_cep_cep VARCHAR
+    horario_saida VARCHAR,
+    horario_chegada VARCHAR,
+    id SERIAL PRIMARY KEY
 );
 
 CREATE TABLE veiculo (
@@ -124,7 +121,7 @@ CREATE TABLE consulta (
     FK_Usuario_login VARCHAR
 );
 
-CREATE TABLE possui (
+CREATE TABLE tem (
     FK_veiculo_id SERIAL,
     FK_motorista_FK_Usuario_login VARCHAR
 );
@@ -133,15 +130,15 @@ CREATE TABLE registra (
     FK_carona_id SERIAL,
     FK_motorista_FK_Usuario_login VARCHAR
 );
+
+CREATE TABLE possui (
+    FK_cep_cep VARCHAR,
+    FK_localizacao_id SERIAL
+);
  
 ALTER TABLE carona ADD CONSTRAINT FK_carona_1
     FOREIGN KEY (FK_localizacao_id)
     REFERENCES localizacao (id)
-    ON DELETE CASCADE ON UPDATE CASCADE;
- 
-ALTER TABLE localizacao ADD CONSTRAINT FK_localizacao_1
-    FOREIGN KEY (FK_cep_cep)
-    REFERENCES cep (cep)
     ON DELETE CASCADE ON UPDATE CASCADE;
  
 ALTER TABLE motorista ADD CONSTRAINT FK_motorista_1
@@ -159,12 +156,12 @@ ALTER TABLE consulta ADD CONSTRAINT FK_consulta_1
     REFERENCES Usuario (login)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE possui ADD CONSTRAINT FK_possui_0
+ALTER TABLE tem ADD CONSTRAINT FK_tem_0
     FOREIGN KEY (FK_veiculo_id)
     REFERENCES veiculo (id)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE possui ADD CONSTRAINT FK_possui_1
+ALTER TABLE tem ADD CONSTRAINT FK_tem_1
     FOREIGN KEY (FK_motorista_FK_Usuario_login)
     REFERENCES motorista (FK_Usuario_login)
     ON DELETE SET NULL ON UPDATE CASCADE;
@@ -177,6 +174,16 @@ ALTER TABLE registra ADD CONSTRAINT FK_registra_0
 ALTER TABLE registra ADD CONSTRAINT FK_registra_1
     FOREIGN KEY (FK_motorista_FK_Usuario_login)
     REFERENCES motorista (FK_Usuario_login)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE possui ADD CONSTRAINT FK_possui_0
+    FOREIGN KEY (FK_cep_cep)
+    REFERENCES cep (cep)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE possui ADD CONSTRAINT FK_possui_1
+    FOREIGN KEY (FK_localizacao_id)
+    REFERENCES localizacao (id)
     ON DELETE SET NULL ON UPDATE CASCADE;
 ```
 
