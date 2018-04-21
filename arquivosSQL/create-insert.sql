@@ -1,5 +1,4 @@
 /* Creates: */
-/* Lógico_1: */
 
 CREATE TABLE Usuario (
     login VARCHAR PRIMARY KEY,
