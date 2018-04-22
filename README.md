@@ -349,6 +349,11 @@ INSERT INTO veiculo (marca, modelo, cor) VALUES
 ```
 ![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_cep.PNG)
 
+```
+    select * from possui;
+```
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_possui.PNG)
+
 ## Data de Entrega: (18/09/2017)
 
 <br>
