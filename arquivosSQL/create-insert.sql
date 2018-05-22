@@ -103,10 +103,6 @@ ALTER TABLE tem ADD CONSTRAINT FK_tem_1
     
     /* Inserts */
     
-truncate carona restart identity cascade;
-truncate veiculo restart identity cascade;
-truncate localizacao restart identity cascade;
-
 INSERT INTO usuario (login, nome, matricula_ou_siape, telefone, email, senha)
 VALUES  ('luiz12', 'Luiz Gonçalves', '20181bsi0178', '(27)99626375','luizgoncalves@gmail.com', 'password'),
 ('carlos1', 'Carlos Patricio', '20181bsi0179', '(27)88626375', 'carlospatricio@gmail.com', 'password1'),
@@ -163,7 +159,7 @@ INSERT INTO motorista (cnh, fk_usuario_login) VALUES
 ('16437512555', 'dummo'),
 ('65988821658', 'furto');
 
-INSERT INTO localizacao (horario_saida, horario_chegada, fk_cep_cep_saida, fk_cep_cep_chegada) VALUES
+INSERT INTO localizacao (horario_saida, horario_chegada, fk_cep_cep, fk_cep_cep_) VALUES
 ('13:00','14:00', '29025-220', '29173-087'),
 ('7:30','13:00', '29070-440', '29173-087'),
 ('08:00','14:00', '29173-087', '29045-300'),
