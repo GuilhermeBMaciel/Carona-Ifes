@@ -22,7 +22,7 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 
 ### 5	MODELO CONCEITUAL<br>
 #### 5.1 NOTACAO ENTIDADE RELACIONAMENTO
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/conceitual.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/Conceitual_1.PNG)
     
 #### 5.3 DECISÕES DE PROJETO
     
@@ -73,7 +73,7 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 
 
 ### 6	MODELO LÓGICO<br>
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/logico.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/Lógico_1.PNG)
 ### 7	MODELO FÍSICO<br>
 - [Modelo físico](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/fisico.sql)
 <br>
