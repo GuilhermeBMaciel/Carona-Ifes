@@ -11,5 +11,6 @@ from motorista inner join carona on (motorista.fk_usuario_login = carona.fk_moto
 
 /*left join:*/
 
-
+select 	consulta.FK_Usuario_login as "Caroneiro", carona.id_carona as "Carona"
+from consulta left join carona on (consulta.Fk_carona_id_carona = carona.id_carona);
 
