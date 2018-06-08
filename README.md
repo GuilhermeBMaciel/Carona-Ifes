@@ -280,6 +280,28 @@ INSERT INTO veiculo (marca, modelo, cor) VALUES
 ('Fiat', 'Punto', 'azul'),
 ('Fit', 'Honda', 'cinza'),
 ('Hyundai', 'HB20', 'vermelho');
+
+INSERT INTO consulta(fk_carona_id_carona, fk_usuario_login) VALUES
+(1,'luiz12'),
+(3, 'carlos1'),
+(4, 'furto'),
+(5,'dummo'),
+(6, 'furto'),
+(7, 'berta'),
+(8, 'berta'),
+(9, 'clara2'),
+(10, 'furto');
+
+INSERT INTO item(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
+(1,'luiz12'),
+(3, 'carlos1'),
+(4, 'furto'),
+(5,'dummo'),
+(6, 'furto'),
+(7, 'berta'),
+(8, 'berta'),
+(9, 'clara2'),
+(10, 'furto');
 ```
         
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELAS E INSERÇÃO DOS DADOS (ARQUIVO ÚNICO COM):
