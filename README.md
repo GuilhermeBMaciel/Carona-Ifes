@@ -257,17 +257,17 @@ INSERT INTO localizacao (horario_saida, horario_chegada, fk_cep_cep, fk_cep_cep_
 ('10:20','13:00', '29173-087', '29168-600'),
 ('12:00','19:00', '29173-087', '29164-050');
 
-INSERT INTO carona (avaliacao, nota_avaliacao, qtd_vagas, fk_localizacao_id_localizacao) VALUES 
-('bom motorista', 4, 3, 1),
-('pessima carona', 1, 2, 2),
-('horrivel', 1, 3, 3),
-('nada', 3, 1, 4),
-('boa carona', 3, 2, 5),
-('muito bom!', 5, 2, 6),
-('excelente.', 5, 3, 7),
-('nao gostei', 1, 2, 8),
-('recomendo', 4, 1, 9),
-('gente boa', 4, 1, 10);
+INSERT INTO carona (avaliacao, nota_avaliacao, qtd_vagas, fk_localizacao_id_localizacao, fk_motorista_fk_usuario_login) VALUES 
+('bom motorista', 4, 3, 1, 'luiz12'),
+('pessima carona', 1, 2, 2, 'furto),
+('horrivel', 1, 3, 3, 'dummo'),
+('nada', 3, 1, 4, 'mago'),
+('boa carona', 3, 2, 5, 'mago',
+('muito bom!', 5, 2, 6, 'silva31'),
+('excelente.', 5, 3, 7, 'berta'),
+('nao gostei', 1, 2, 8, 'dummo'),
+('recomendo', 4, 1, 9, 'calids'),
+('gente boa', 4, 1, 10, 'silva31');
 
 INSERT INTO veiculo (marca, modelo, cor) VALUES 
 ('Fiat', 'Palio', 'azul'),
