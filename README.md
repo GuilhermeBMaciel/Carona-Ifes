@@ -259,10 +259,10 @@ INSERT INTO localizacao (horario_saida, horario_chegada, fk_cep_cep, fk_cep_cep_
 
 INSERT INTO carona (avaliacao, nota_avaliacao, qtd_vagas, fk_localizacao_id_localizacao, fk_motorista_fk_usuario_login) VALUES 
 ('bom motorista', 4, 3, 1, 'luiz12'),
-('pessima carona', 1, 2, 2, 'furto),
+('pessima carona', 1, 2, 2, 'furto'),
 ('horrivel', 1, 3, 3, 'dummo'),
 ('nada', 3, 1, 4, 'mago'),
-('boa carona', 3, 2, 5, 'mago',
+('boa carona', 3, 2, 5, 'mago)',
 ('muito bom!', 5, 2, 6, 'silva31'),
 ('excelente.', 5, 3, 7, 'berta'),
 ('nao gostei', 1, 2, 8, 'dummo'),
