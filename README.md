@@ -309,6 +309,10 @@ INSERT INTO tem(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
 #### 9.1	GERACAO DE DADOS (MÍNIMO DE 10 REGISTROS PARA CADA TABELA NO BANCO DE DADOS)<br>
+
+#### 9.2	SELECT DAS TABELAS COM PRIMEIROS 10 REGISTROS INSERIDOS <br> 
+
+<br>
 ```
     select * from usuario;
 ```
@@ -343,14 +347,9 @@ INSERT INTO tem(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
 ```
 ![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_possui.PNG)
 
-## Data de Entrega: (18/09/2017)
 
-<br>
-OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 
-#### 9.2	SELECT DAS TABELAS COM PRIMEIROS 10 REGISTROS INSERIDOS <br> 
-    Data de Entrega: (Data a ser definida)
-<br>
+
 
 #### 9.3	SELECT DAS VISÕES COM PRIMEIROS 10 REGISTROS DA VIEW <br>
 
@@ -368,13 +367,17 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
 Verifica se há alguma avaliação com ótimo rendimento.
 <br>
-```select exists (select * from carona c where avaliacao = 'otimo')```
+```
+select exists (select * from carona c where avaliacao = 'otimo')
+```
 <br>
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/boas_avaliacoes.PNG)
 <br>
 Verifica se não há avaliação com nota acima da média.
 <br>
-```select not exists (select * from carona c where nota_avaliacao > 6)```
+```
+select not exists (select * from carona c where nota_avaliacao > 6)
+```
 <br>
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/not_exist.PNG)
 <br>
@@ -389,6 +392,7 @@ Verifica se não há avaliação com nota acima da média.
         c) as funcionalidades informadas no minimundo ou nos mockups(protótipos), que representarem 
         views do sistema (relatórios, informações disponíveis para os usuários, etc) devem estar 
         presentes aqui. 
+```
 <br>
 
 #### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>
@@ -397,6 +401,29 @@ Verifica se não há avaliação com nota acima da média.
         b) Código do objeto (função/trigger/asserção)
         c) exemplo de dados para aplicação
         d) resultados em forma de tabela/imagem
+       <br>
+```       
+create function existeUsuario()
+returns trigger as $$
+begin
+	if exists(
+		Select usuario.login from usuario 
+	)
+	then raise exception 'Erro!Usuário já existente';
+	end if;
+end
+$$ LANGUAGE plpgsql;
+
+create trigger checkUsuario
+before insert
+on usuario
+execute procedure existeUsuario();
+
+insert into usuario(login,nome,matricula_ou_siape,telefone,email,senha) 
+values ('luiz12','Luiz carlos','23232bsi4444','(27)11111111','joaoao@gmail.com','passw11');     
+```
+<br>
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/trigger_usuarioexiste.PNG)
 <br>
 
 #### 9.5	Administração do banco de dados<br>
