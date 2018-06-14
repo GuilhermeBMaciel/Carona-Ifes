@@ -292,7 +292,7 @@ INSERT INTO consulta(fk_carona_id_carona, fk_usuario_login) VALUES
 (9, 'clara2'),
 (10, 'furto');
 
-INSERT INTO item(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
+INSERT INTO tem(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
 (1,'luiz12'),
 (3, 'carlos1'),
 (4, 'furto'),
