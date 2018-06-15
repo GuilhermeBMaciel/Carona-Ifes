@@ -417,6 +417,7 @@ $$ LANGUAGE plpgsql;
 create trigger checkUsuario
 before insert
 on usuario
+for each row
 execute procedure existeUsuario();
 
 insert into usuario(login,nome,matricula_ou_siape,telefone,email,senha) 
