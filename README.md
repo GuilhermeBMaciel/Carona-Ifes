@@ -363,7 +363,6 @@ INSERT INTO tem(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
 <br> A view destino foi feita para mapeia os destinos mais frequentados pelos usuários, esta informação pode auxiliar os usuários a se organizar melhor, ou até mesmo para se fixar pontos estratégicos/tomadas de decisões a respeito do destino, um exemplo dessas decisões foi a inserção de placas sinalizadoras em lugares estratégicos dentro e fora da faculdade para auxiliar o sucesso do aplicativo ocorrido no rio de janeiro pela ufrj.<br>
 
 ![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/views_frequenciaDestino.PNG)
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/Lógico_1.PNG)
 
 <br>
 Verifica se há alguma avaliação com ótimo rendimento.
