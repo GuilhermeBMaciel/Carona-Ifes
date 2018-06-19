@@ -363,6 +363,7 @@ INSERT INTO tem(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
 <br> A view destino foi feita para mapeia os destinos mais frequentados pelos usuários, esta informação pode auxiliar os usuários a se organizar melhor, ou até mesmo para se fixar pontos estratégicos/tomadas de decisões a respeito do destino, um exemplo dessas decisões foi a inserção de placas sinalizadoras em lugares estratégicos dentro e fora da faculdade para auxiliar o sucesso do aplicativo ocorrido no rio de janeiro pela ufrj.<br>
 
 ![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/views_frequenciaDestino.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/Lógico_1.PNG)
 
 <br>
 Verifica se há alguma avaliação com ótimo rendimento.
@@ -371,6 +372,7 @@ Verifica se há alguma avaliação com ótimo rendimento.
 select exists (select * from carona c where avaliacao = 'otimo')
 ```
 <br>
+
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/boas_avaliacoes.PNG)
 <br>
 Verifica se não há avaliação com nota acima da média.
@@ -402,7 +404,8 @@ select not exists (select * from carona c where nota_avaliacao > 6)
         c) exemplo de dados para aplicação
         d) resultados em forma de tabela/imagem
        <br>
-```       
+```  
+/* Trigger 1 */
 create function existeUsuario()
 returns trigger as $$
 begin
@@ -423,9 +426,34 @@ execute procedure existeUsuario();
 insert into usuario(login,nome,matricula_ou_siape,telefone,email,senha) 
 values ('luiz12','Luiz carlos','23232bsi4444','(27)11111111','joaoao@gmail.com','passw11');     
 ```
+
 <br>
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/trigger_usuarioexiste.PNG)
 <br>
+
+```
+/* Trigger 2 */
+create function existeCnh()
+returns trigger as $$
+begin
+	if exists(
+		Select motorista.cnh from motorista 
+	)
+	then raise exception 'Erro!Cnh já registrado';
+	end if;
+end
+$$ LANGUAGE plpgsql;
+
+create trigger checarMotorista
+before insert
+on motorista
+for each row
+execute procedure existeCnh();
+
+INSERT INTO motorista (cnh, fk_usuario_login) VALUES
+('59089813750', 'luiz12'),
+```
+
 
 #### 9.5	Administração do banco de dados<br>
         Descrição detalhada sobre como serão executadas no banco de dados as <br>
