@@ -372,7 +372,8 @@ select exists (select * from carona c where avaliacao = 'otimo')
 ```
 <br>
 
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/boas_avaliacoes.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/boas_avaliacoes.PNG)
+
 <br>
 Verifica se não há avaliação com nota acima da média.
 <br>
@@ -380,7 +381,7 @@ Verifica se não há avaliação com nota acima da média.
 select not exists (select * from carona c where nota_avaliacao > 6)
 ```
 <br>
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/not_exist.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/not_exist.PNG)
 <br>
 
 
@@ -397,12 +398,8 @@ select not exists (select * from carona c where nota_avaliacao > 6)
 <br>
 
 #### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>
-        Detalhamento sobre funcionalidade de cada código.
-        a) Objetivo
-        b) Código do objeto (função/trigger/asserção)
-        c) exemplo de dados para aplicação
-        d) resultados em forma de tabela/imagem
-       <br>       
+       
+   Assertion para validar os inserts na tabela usuario, é fudamental que não ocorra a duplicação de logins.<br>    
 ```  
 /* Trigger 1 */
 create function existeUsuario()
@@ -429,7 +426,7 @@ values ('luiz12','Luiz carlos','23232bsi4444','(27)11111111','joaoao@gmail.com',
 <br>
 ![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/trigger_usuarioexiste.PNG)
 <br>
-
+Assertion para validar os inserts na tabela motorista para que não ocorra a duplicação de CNHS.<br>    
 ```
 /* Trigger 2 */
 create function existeCnh()
