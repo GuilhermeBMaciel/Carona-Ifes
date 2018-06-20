@@ -426,9 +426,14 @@ values ('luiz12','Luiz carlos','23232bsi4444','(27)11111111','joaoao@gmail.com',
 ```
 <br> 
 <br>
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/trigger_usuarioexiste.PNG)
+
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/trigger_usuarioexiste.PNG)
+
 <br>
-Assertion para validar os inserts na tabela motorista para que não ocorra a duplicação de CNHS.<br>    
+
+Assertion para validar os inserts na tabela motorista para que não ocorra a duplicação de CNHS.
+<br>    
+
 ```
 /* Trigger 2 */
 create function existeCnh()
@@ -449,9 +454,14 @@ for each row
 execute procedure existeCnh();
 
 INSERT INTO motorista (cnh, fk_usuario_login) VALUES
-('59089813750', 'luiz12'),
-```
+('59089813750', 'luiz12')
 
+```
+<br>
+
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/verifica_cnh.PNG)
+
+<br>
 
 #### 9.5	Administração do banco de dados<br>
         Descrição detalhada sobre como serão executadas no banco de dados as <br>
