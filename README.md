@@ -368,7 +368,7 @@ INSERT INTO tem(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
 Verifica se há alguma avaliação com ótimo rendimento.
 <br>
 ```
-select exists (select * from carona c where avaliacao = 'otimo')
+	select exists (select * from carona c where avaliacao = 'otimo')
 ```
 <br>
 
@@ -378,10 +378,12 @@ select exists (select * from carona c where avaliacao = 'otimo')
 Verifica se não há avaliação com nota acima da média.
 <br>
 ```
-select not exists (select * from carona c where nota_avaliacao > 6)
+	select not exists (select * from carona c where nota_avaliacao > 6)
 ```
 <br>
+
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/not_exist.PNG)
+
 <br>
 
 
