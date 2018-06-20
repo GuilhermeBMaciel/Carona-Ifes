@@ -420,11 +420,16 @@ before insert
 on usuario
 for each row
 execute procedure existeUsuario();
+```
 
+Teste
+<br>
+```
 insert into usuario(login,nome,matricula_ou_siape,telefone,email,senha) 
 values ('luiz12','Luiz carlos','23232bsi4444','(27)11111111','joaoao@gmail.com','passw11');     
 ```
 <br> 
+Resultado
 <br>
 
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/trigger_usuarioexiste.PNG)
@@ -452,11 +457,16 @@ before insert
 on motorista
 for each row
 execute procedure existeCnh();
-
-INSERT INTO motorista (cnh, fk_usuario_login) VALUES
-('59089813750', 'luiz12')
+```
+<br>
+Teste
+<br>
 
 ```
+INSERT INTO motorista (cnh, fk_usuario_login) VALUES ('59089813750', 'luiz12')
+
+```
+Resultado
 <br>
 
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/verifica_cnh.PNG)
