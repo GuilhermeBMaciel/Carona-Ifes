@@ -62,12 +62,12 @@ for i in range(1500000):
 		arq2.write("\t('"+cnh+"','"+login+"'),\n")
 	if (i==99999):
 		cnh = fakeCNH()
-		arq2.write("\t('"+cnh+"','"+login+"')\n\tON CONFLICT IGNORE;\n")
+		arq2.write("\t('"+cnh+"','"+login+"')\n\tON CONFLICT DO NOTHING;\n")
 
 	if(i<1500000 -2):
 		arq.write("\t('"+login+"','"+nomeCompleto+"','"+matricula+"','"+fakeTelefone()+"','"+email+"','"+password+"'),\n")
 	if (i==1500000 -1):
-		arq.write("\t('"+login+"','"+nomeCompleto+"','"+matricula+"','"+fakeTelefone()+"','"+email+"','"+password+"')\n\tON CONFLICT IGNORE;\n")
+		arq.write("\t('"+login+"','"+nomeCompleto+"','"+matricula+"','"+fakeTelefone()+"','"+email+"','"+password+"')\n\tON CONFLICT DO NOTHING;\n")
  
 
 
