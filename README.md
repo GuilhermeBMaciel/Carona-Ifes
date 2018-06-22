@@ -495,7 +495,7 @@ Para popular a principal tabela do nosso banco de dados, utilizamos a linguagem 
 | Tipo | Tamanho | Tempo Backup | Tempo Restore |
 | ---- | ------- | ------------ | ------------- |
 |SQL|60,2|8.7|20.8|
-|FC|60,2KB|19|25|
+|FC|60,2|19|25|
 
 
 
