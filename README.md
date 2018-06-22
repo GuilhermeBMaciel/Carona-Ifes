@@ -312,11 +312,13 @@ INSERT INTO tem(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
 
 #### 9.2	SELECT DAS TABELAS COM PRIMEIROS 10 REGISTROS INSERIDOS <br> 
 
-<br>
+
 ```
-    select * from usuario;
+	select * from usuario;
 ```
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_usuario.PNG)
+
+![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_usuario.PNG) <br>
+
 
 ```
     select * from motorista;
@@ -474,29 +476,31 @@ Resultado
 <br>
 
 #### 9.5	Administração do banco de dados<br>
-        Descrição detalhada sobre como serão executadas no banco de dados as <br>
-        seguintes atividades.
-        a) Segurança e autorização de acesso:
-	Criamos usuário para acessar as tabelas e em seguida foi dado privilégios para estes usuários.
+
+Criamos usuário para acessar as tabelas e em seguida foi dado privilégios para estes usuários.
 <br>
+
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/usuarios1.png)
+
 <br>
 
 ```
-grant all privileges on database casavalor to adms
+grant all privileges on database carona to adms
 
-grant select on database casavalor to convidados
+grant select on database carona to convidados
 ```
 
 <br>
-![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/usuarios2.png)
+
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/usuario2.png)
+
 <br>
 
-        b) A principio o projeto necessitará de um servidor basico para conseguir rodar pois o sistema recebe grande esforço apenas 
-	quando rodamos as inserções de dados realizadas pelo psql. Após isso a quantidade de consultas e armazenamento de dados serão
-	relativamente baixas, portanto, um servidor com um cpu 4 core, 4 gb de ram e 500 gb de armazenamento em hd será suficiente.
-	
-        c) As rotinas do sistema serão feitas com o comando "analyze;" em um dia da semana.
+A principio o projeto necessitará de um servidor basico para conseguir rodar pois o sistema recebe grande esforço apenas 
+uando rodamos as inserções de dados realizadas pelo psql. Após isso a quantidade de consultas e armazenamento de dados serão
+relativamente baixas, portanto, um servidor com um cpu 4 core, 6 gb de ram e 500 gb de armazenamento em hd será suficiente.
+<br>	
+As rotinas do sistema serão feitas com o comando "analyze;" pelo menos duas vezes na semana.
 
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
