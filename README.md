@@ -491,17 +491,27 @@ Para popular a principal tabela do nosso banco de dados, utilizamos a linguagem 
 
 
 #### 9.7	Backup do Banco de Dados<br>
-        Detalhamento do backup.
-        a) Tempo
-        b) Tamanho
-        c) Teste de restauração (backup)
-        d) Tempo para restauração
-        e) Teste de restauração (script sql)
-        f) Tempo para restauração (script sql)
-<br>
 
-Data de Entrega: (Data a ser definida)
-<br>
+| Tipo | Tamanho | Tempo Backup | Tempo Restore |
+| ---- | ------- | ------------ | ------------- |
+|SQL|60,2|8.7|20.8|
+|FC|60,2KB|19|25|
+
+
+
+Restore
+
+```
+	pg_restore -h localhost -U postgres -w -d carona2 < carona.bkp
+
+```
+
+Backup 
+
+```
+	pg_dump -h localhost -Fc  -U postgres -W -d carona > carona.bkp
+
+```
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
     a) Lista de índices, tipos de índices com explicação de porque foram implementados nas consultas 
