@@ -477,9 +477,24 @@ Resultado
         Descrição detalhada sobre como serão executadas no banco de dados as <br>
         seguintes atividades.
         a) Segurança e autorização de acesso:
-        b) Estimativas de aquisição de recursos para armazenamento e processamento da informação
-        c) Planejamento de rotinas de manutenção e monitoramento do banco
-        d) Plano com frequencia de análises visando otimização de performance
+	Criamos usuário para acessar as tabelas e em seguida foi dado privilégios para estes usuários.
+<br>
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/usuarios1.PNG)
+<br>
+```
+grant all privileges on database casavalor to adms
+
+grant select on database casavalor to convidados
+```
+<br>
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/usuarios2.PNG)
+<br>
+
+        b) A principio o projeto necessitará de um servidor basico para conseguir rodar pois o sistema recebe grande esforço apenas 
+	quando rodamos as inserções de dados realizadas pelo psql. Após isso a quantidade de consultas e armazenamento de dados serão
+	relativamente baixas, portanto, um servidor com um cpu 4 core, 4 gb de ram e 500 gb de armazenamento em hd será suficiente.
+	
+        c) As rotinas do sistema serão feitas com o comando "analyze;" em um dia da semana.
 <br>
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
