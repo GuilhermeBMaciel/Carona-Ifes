@@ -1,0 +1,4 @@
+create view boasCaronas as
+select fk_motorista_fk_usuario_login as Motoristas
+from carona
+where nota_avaliacao > 3;
