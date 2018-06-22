@@ -483,13 +483,10 @@ Resultado
 <br>
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
-        a) principal tabela do sistema deve ter no mínimo 1,5 milhão de registros
-        b) tabelas diretamente relacionadas a tabela principal 100 mil registros
-        c) tabelas auxiliares de relacao multivalorada mínimo de 10 registros
-        d) registrar o tempo de inserção em cada uma das tabelas do banco de dados
-        e) especificar a quantidade de registros inseridos em cada tabela
-        Para melhor compreensão verifiquem o exemplo na base de testes:<br>
-        https://github.com/discipbd2/base-de-testes-locadora
+- [Scripts](https://github.com/GuilhermeBMaciel/Carona-Ifes/tree/master/insertion) <br>
+Para popular a principal tabela do nosso banco de dados, utilizamos a linguagem python junto com a biblioteca faker. No nosso caso, utilizamos um i7 da 4 geração com 8 memória RAM para gerar e popular o banco e demorou aproximadamente 4 minutos para inserer aproximadamente 1,5 milhões de dados na tabela de usuário e 100 mil dados na tabela de motorista.<br>
+	
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/script_insertion.PNG)
         
 
 
