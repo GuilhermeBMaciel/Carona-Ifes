@@ -479,7 +479,7 @@ Resultado
         a) Segurança e autorização de acesso:
 	Criamos usuário para acessar as tabelas e em seguida foi dado privilégios para estes usuários.
 <br>
-![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/usuarios1.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/usuarios1.png)
 <br>
 
 ```
@@ -489,7 +489,7 @@ grant select on database casavalor to convidados
 ```
 
 <br>
-![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/usuarios2.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/usuarios2.png)
 <br>
 
         b) A principio o projeto necessitará de um servidor basico para conseguir rodar pois o sistema recebe grande esforço apenas 
