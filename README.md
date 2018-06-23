@@ -353,37 +353,38 @@ INSERT INTO tem(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
 
 
 
-#### 9.3	SELECT DAS VISÕES COM PRIMEIROS 10 REGISTROS DA VIEW <br>
+#### 9.3	SELECT DAS VISÕES COM PRIMEIROS 10 REGISTROS DA VIEW 
+- [Script SQL](https://github.com/GuilhermeBMaciel/Carona-Ifes/tree/master/Bloco%2003/views)
+<br>
 
 ```
-    Create view destino as
-    Select fk_cep_cep_ as Destino ,COUNT(fk_cep_cep_) as Frequencia
-    from localizacao
-    group by fk_cep_cep_
-    order by Frequencia desc;
+    select * from destinos;
 ```
-<br> A view destino foi feita para mapeia os destinos mais frequentados pelos usuários, esta informação pode auxiliar os usuários a se organizar melhor, ou até mesmo para se fixar pontos estratégicos/tomadas de decisões a respeito do destino, um exemplo dessas decisões foi a inserção de placas sinalizadoras em lugares estratégicos dentro e fora da faculdade para auxiliar o sucesso do aplicativo ocorrido no rio de janeiro pela ufrj.<br>
+
+<br> A view destino foi feita para mapeia os destinos mais frequentados pelos usuários, esta informação pode auxiliar os usuários a se organizar melhor, ou até mesmo para se fixar pontos estratégicos/tomadas de decisões a respeito do destino, um exemplo dessas decisões foi a inserção de placas sinalizadoras em lugares estratégicos dentro e fora da faculdade para auxiliar o sucesso do aplicativo ocorrido no rio de janeiro pela ufrj. Quem tem permissão para utiliza-la é os usuários e os administradores.<br>
 
 ![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/views_frequenciaDestino.PNG)
 
 <br>
 Verifica se há alguma avaliação com ótimo rendimento.
 <br>
+View criada para o uso dos usuários, ela serve para exibir os motoristas que foram melhor classificados pelos mesmos. 
+<br>
 
 ```
-select exists (select * from carona c where avaliacao = 'otimo')
+select * from boasCaronas;
 ```
 
 <br>
 
-![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/boas_avaliacoes.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/Bloco%2003/prints/BonsMotoristas.PNG)
 
 <br>
-Verifica se não há avaliação com nota acima da média.
+A view locaisRegistrado exibe todos os locais que há possibilidade de ter carona, só quem é usuário pode utiliza.
 <br>
 
 ```
-select not exists (select * from carona c where nota_avaliacao > 6)
+select * from locaisRegistrados;
 ```
 
 <br>
@@ -395,14 +396,7 @@ select not exists (select * from carona c where nota_avaliacao > 6)
 
 
 
-```
-        b) Descrição das permissões de acesso e usuários correlacionados (após definição <br>
-        destas características)
-    Data de Entrega: (Data a ser definida)
-        c) as funcionalidades informadas no minimundo ou nos mockups(protótipos), que representarem 
-        views do sistema (relatórios, informações disponíveis para os usuários, etc) devem estar 
-        presentes aqui. 
-```
+
 <br>
 
 #### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>
