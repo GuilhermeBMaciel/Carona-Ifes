@@ -1,0 +1,4 @@
+create view locaisRegistrados as 
+select bairro as Locais
+from cep
+limit 10; 
