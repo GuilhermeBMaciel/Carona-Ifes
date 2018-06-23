@@ -389,7 +389,7 @@ select * from locaisRegistrados;
 
 <br>
 
-![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/not_exist.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/Bloco%2003/prints/locaisRegistrados.PNG)
 
 <br>
 
