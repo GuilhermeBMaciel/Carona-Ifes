@@ -1,0 +1,6 @@
+select u.nome as motorista, ce.bairro as destino
+from usuario u
+inner join motorista mo on (mo.fk_usuario_login = u.login)
+inner join carona ca on (ca.fk_motorista_fk_usuario_login = mo.fk_usuario_login)
+inner join localizacao lo on (lo.id_localizacao = ca.fk_localizacao_id_localizacao)
+inner join cep ce on (ce.cep = lo.fk_cep_cep)
