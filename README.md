@@ -540,9 +540,41 @@ Backup
     e) As imagens do Explain devem ser inclusas no trabalho, bem como explicações sobre os resultados obtidos.
     f) Inclusão de tabela mostrando as 10 execuções, excluindo-se o maior e menor tempos para cada consulta e 
     obtendo-se a media dos outros valores como resultado médio final.
+    
+
+QUERIES
+```
+ A - 
+	select u.nome as motorista, cz.bairro as origem,ce.bairro as destino 
+	from usuario u
+	inner join motorista mo on (mo.fk_usuario_login = u.login)
+	inner join carona ca on (ca.fk_motorista_fk_usuario_login = mo.fk_usuario_login)
+	inner join localizacao lo on (lo.id_localizacao = ca.fk_localizacao_id_localizacao)
+	inner join cep ce on (ce.cep = lo.fk_cep_cep)
+	inner join cep cz on (cz.cep = lo.fk_cep_cep_)
+	
+  B - 	
+  	select u.nome as motorista, cz.bairro as origem,ce.bairro as destino, car.modelo
+	from usuario u
+	inner join motorista mo on (mo.fk_usuario_login = u.login)
+	inner join carona ca on (ca.fk_motorista_fk_usuario_login = mo.fk_usuario_login)
+	inner join localizacao lo on (lo.id_localizacao = ca.fk_localizacao_id_localizacao)
+	inner join cep ce on (ce.cep = lo.fk_cep_cep)
+	inner join cep cz on (cz.cep = lo.fk_cep_cep_)
+	inner join tem te on (te.fk_motorista_fk_usuario_login = mo.fk_usuario_login)
+	inner join veiculo car on (te.fk_veiculo_id_veiculo = car.id_veiculo);
+```
 <br>
-    Data de Entrega: (Data a ser definida)
+
+| Tabela | Com Indice | Sem Indice |
+| ------ | ---------- | ---------- | 
+|A esperado|||
+|A real|||
+|B esperado|||
+|B Real|||
+
 <br>   
+
 
 #### 9.9	ANÁLISE DOS DADOS COM ORANGE<br>    
         a) captura das informaçõs
