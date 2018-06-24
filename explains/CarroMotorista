@@ -1,0 +1,7 @@
+select u.nome as motorista, car.modelo
+from usuario u
+inner join motorista mo on (mo.fk_usuario_login = u.login)
+inner join carona ca on (ca.fk_motorista_fk_usuario_login = mo.fk_usuario_login)
+inner join localizacao lo on (lo.id_localizacao = ca.fk_localizacao_id_localizacao)
+inner join tem te on (te.fk_motorista_fk_usuario_login = mo.fk_usuario_login)
+inner join veiculo car on (te.fk_veiculo_id_veiculo = car.id_veiculo);
