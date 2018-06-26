@@ -506,7 +506,7 @@ As rotinas do sistema serão feitas com o comando "analyze;" pelo menos duas vez
 - [Scripts](https://github.com/GuilhermeBMaciel/Carona-Ifes/tree/master/insertion) <br>
 Para popular a principal tabela do nosso banco de dados, utilizamos a linguagem python junto com a biblioteca faker. No nosso caso, utilizamos um i7 da 4 geração com 8 memória RAM para gerar e popular o banco e demorou aproximadamente 4 minutos para inserer aproximadamente 1,5 milhões de dados na tabela de usuário e 100 mil dados na tabela de motorista.<br>
 	
-![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/script_insertion.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/insertion/script_insertion.PNG)
         
 
 
