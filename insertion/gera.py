@@ -137,7 +137,7 @@ for i in range(1500000):
 #Arquivo cep e localizacao
 lst = []
 cont = 0
-for i in range (2500):
+for i in range (10000):
 	municipio = fakeMunicipioVix()
 	bairro = fakeBairroVix()
 	rua = fakeRua()
@@ -146,18 +146,20 @@ for i in range (2500):
 	hora1 = fakeHora()
 	hora2 = fakeHora()
 			
-	if(len(lst)==2 and cont != 1000):
-		if(i<1000):
+	if(len(lst)==2):
+		if(i<3000):
 			arq7.write("\t('"+hora1+"','"+hora2+"','"+lst[0]+"','"+lst[1]+"'),\n")
-		if (i==1000-1):
+			
+		if (i==3000-1):
 			arq7.write("\t('"+hora1+"','"+hora2+"','"+lst[0]+"','"+lst[1]+"')\n\tON CONFLICT DO NOTHING;\n")
-		cont += 1
+			
+		
 		lst = []
 				
-	if(i<1000):
+	if(i<10000):
 		arq6.write("\t('"+municipio+"','"+bairro+"','"+rua+"','"+cep+"'),\n")
 		
-	if (i==1000-1):
+	if (i==10000-1):
 		arq6.write("\t('"+municipio+"','"+bairro+"','"+rua+"','"+cep+"')\n\tON CONFLICT DO NOTHING;\n")	
 		
 		
