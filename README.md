@@ -534,11 +534,11 @@ Backup
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
     a) Lista de índices, tipos de índices com explicação de porque foram implementados nas consultas 
-  O "index_usuario" e "index_motorista" foram criados afim de tornar a busca tanto pelos usuários "caroneiros" do sistema, quanto pelos
-  usuarios motoristas, mais rapidas.
+  O "index_consulta" foi criado afim de tornar a busca pelos usuários relacionados a uma determinada carona. E o "index_localizacao"
+  foi criado afim de identificar quais destinos estão sendo mais visitados pelos usuários do sistema.
   ```  
-  create index index_usuario on usuario(login);
-  create index index_motorista on motorista(fk_usuario_login);
+  create index index_consulta on consulta(fk_carona_id_carona);
+  create index index_localizacao on localizacao(id_localizacao);
   ```  
     
     b) Performance esperada VS Resultados obtidos
