@@ -1,5 +1,6 @@
 CREATE TABLE Usuario (
-    login VARCHAR PRIMARY KEY,
+    idUsuario serial PRIMARY KEY,
+	login VARCHAR,
     nome VARCHAR,
     matricula_ou_siape VARCHAR,
     telefone VARCHAR,
@@ -12,8 +13,8 @@ CREATE TABLE carona (
     avaliacao VARCHAR,
     nota_avaliacao INTEGER,
     qtd_vagas INTEGER,
-    FK_localizacao_id_localizacao Serial,
-    FK_motorista_FK_Usuario_login VARCHAR
+    FK_localizacao_id_localizacao INTEGER,
+    FK_motorista_FK_idUsuario INTEGER
 );
 
 CREATE TABLE localizacao (
@@ -33,7 +34,7 @@ CREATE TABLE veiculo (
 
 CREATE TABLE motorista (
     cnh VARCHAR,
-    FK_Usuario_login VARCHAR PRIMARY KEY
+    FK_usuario_idUsuario INTEGER PRIMARY KEY
 );
 
 CREATE TABLE cep (
@@ -44,13 +45,13 @@ CREATE TABLE cep (
 );
 
 CREATE TABLE consulta (
-    FK_carona_id_carona Serial,
-    FK_Usuario_login VARCHAR
+    FK_carona_id_carona INTEGER,
+    FK_usuario_idUsuario INTEGER
 );
 
 CREATE TABLE tem (
-    FK_veiculo_id_veiculo Serial,
-    FK_motorista_FK_Usuario_login VARCHAR
+    FK_veiculo_id_veiculo INTEGER,
+    FK_motorista_FK_Usuario_idUsuario INTEGER
 );
  
 ALTER TABLE carona ADD CONSTRAINT FK_carona_1
@@ -59,8 +60,8 @@ ALTER TABLE carona ADD CONSTRAINT FK_carona_1
     ON DELETE CASCADE ON UPDATE CASCADE;
  
 ALTER TABLE carona ADD CONSTRAINT FK_carona_2
-    FOREIGN KEY (FK_motorista_FK_Usuario_login)
-    REFERENCES motorista (FK_Usuario_login)
+    FOREIGN KEY (FK_motorista_FK_idUsuario)
+    REFERENCES motorista (FK_usuario_idUsuario)
     ON DELETE CASCADE ON UPDATE CASCADE;
  
 ALTER TABLE localizacao ADD CONSTRAINT FK_localizacao_1
@@ -75,8 +76,8 @@ ALTER TABLE localizacao ADD CONSTRAINT FK_localizacao_2
     
  
 ALTER TABLE motorista ADD CONSTRAINT FK_motorista_1
-    FOREIGN KEY (FK_Usuario_login)
-    REFERENCES Usuario (login)
+    FOREIGN KEY (FK_Usuario_idUsuario)
+    REFERENCES Usuario (idUsuario)
     ON DELETE CASCADE ON UPDATE CASCADE;
  
 ALTER TABLE consulta ADD CONSTRAINT FK_consulta_0
@@ -85,8 +86,8 @@ ALTER TABLE consulta ADD CONSTRAINT FK_consulta_0
     ON DELETE SET NULL ON UPDATE CASCADE;
  
 ALTER TABLE consulta ADD CONSTRAINT FK_consulta_1
-    FOREIGN KEY (FK_Usuario_login)
-    REFERENCES Usuario (login)
+    FOREIGN KEY (FK_Usuario_idUsuario)
+    REFERENCES Usuario (idUsuario)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
 ALTER TABLE tem ADD CONSTRAINT FK_tem_0
@@ -95,6 +96,6 @@ ALTER TABLE tem ADD CONSTRAINT FK_tem_0
     ON DELETE SET NULL ON UPDATE CASCADE;
  
 ALTER TABLE tem ADD CONSTRAINT FK_tem_1
-    FOREIGN KEY (FK_motorista_FK_Usuario_login)
-    REFERENCES motorista (FK_Usuario_login)
+    FOREIGN KEY (FK_motorista_FK_Usuario_idUsuario)
+    REFERENCES motorista (FK_Usuario_idUsuario)
     ON DELETE SET NULL ON UPDATE CASCADE;
