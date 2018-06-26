@@ -534,16 +534,21 @@ Backup
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
     a) Lista de índices, tipos de índices com explicação de porque foram implementados nas consultas 
-    b) Performance esperada VS Resultados obtidos
-    c) Tabela de resultados comparando velocidades antes e depois da aplicação dos índices (constando velocidade esperada com planejamento, sem indice e com índice Vs velocidade de execucao real com índice e sem índice).
-    d) Escolher as consultas mais complexas para serem analisadas (consultas com menos de 2 joins não serão aceitas)
-    e) As imagens do Explain devem ser inclusas no trabalho, bem como explicações sobre os resultados obtidos.
-    f) Inclusão de tabela mostrando as 10 execuções, excluindo-se o maior e menor tempos para cada consulta e 
-    obtendo-se a media dos outros valores como resultado médio final.
+  O "index_usuario" e "index_motorista" foram criados afim de tornar a busca tanto pelos usuários "caroneiros" do sistema, quanto pelos
+  usuarios motoristas, mais rapidas.
+  ```  
+  create index index_usuario on usuario(login);
+  create index index_motorista on motorista(fk_usuario_login);
+  ```  
     
-
-QUERIES
-```
+    b) Performance esperada VS Resultados obtidos
+    
+    c) Tabela de resultados comparando velocidades antes e depois da aplicação dos índices (constando velocidade esperada com 
+    planejamento, sem indice e com índice Vs velocidade de execucao real com índice e sem índice).
+    
+    d) Escolher as consultas mais complexas para serem analisadas (consultas com menos de 2 joins não serão aceitas)
+    
+  ```
  A - 
 	select u.nome as motorista, cz.bairro as origem,ce.bairro as destino 
 	from usuario u
@@ -563,7 +568,13 @@ QUERIES
 	inner join cep cz on (cz.cep = lo.fk_cep_cep_)
 	inner join tem te on (te.fk_motorista_fk_usuario_login = mo.fk_usuario_login)
 	inner join veiculo car on (te.fk_veiculo_id_veiculo = car.id_veiculo);
-```
+```  
+    
+    e) As imagens do Explain devem ser inclusas no trabalho, bem como explicações sobre os resultados obtidos.
+    
+    f) Inclusão de tabela mostrando as 10 execuções, excluindo-se o maior e menor tempos para cada consulta e 
+    obtendo-se a media dos outros valores como resultado médio final.
+    
 <br>
 
 | Tabela | Com Indice | Sem Indice |
