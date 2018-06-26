@@ -1,108 +1,7 @@
-/* Lógico_1: */
+truncate carona restart identity cascade;
+truncate veiculo restart identity cascade;
+truncate localizacao restart identity cascade;
 
-CREATE TABLE Usuario (
-    login VARCHAR PRIMARY KEY,
-    nome VARCHAR,
-    matricula_ou_siape VARCHAR,
-    telefone VARCHAR,
-    email VARCHAR,
-    senha VARCHAR
-);
-
-CREATE TABLE carona (
-    id_carona Serial PRIMARY KEY,
-    avaliacao VARCHAR,
-    nota_avaliacao INTEGER,
-    qtd_vagas INTEGER,
-    FK_localizacao_id_localizacao Serial,
-    FK_motorista_FK_Usuario_login VARCHAR
-);
-
-CREATE TABLE localizacao (
-    horario_saida VARCHAR,
-    horario_chegada VARCHAR,
-    id_localizacao Serial PRIMARY KEY,
-    FK_cep_cep VARCHAR,
-    FK_cep_cep_ VARCHAR
-);
-
-CREATE TABLE veiculo (
-    marca VARCHAR,
-    modelo VARCHAR,
-    cor VARCHAR,
-    id_veiculo Serial PRIMARY KEY
-);
-
-CREATE TABLE motorista (
-    cnh VARCHAR,
-    FK_Usuario_login VARCHAR PRIMARY KEY
-);
-
-CREATE TABLE cep (
-    municipio VARCHAR,
-    bairro VARCHAR,
-    rua VARCHAR,
-    cep VARCHAR PRIMARY KEY
-);
-
-CREATE TABLE consulta (
-    FK_carona_id_carona Serial,
-    FK_Usuario_login VARCHAR
-);
-
-CREATE TABLE tem (
-    FK_veiculo_id_veiculo Serial,
-    FK_motorista_FK_Usuario_login VARCHAR
-);
- 
-ALTER TABLE carona ADD CONSTRAINT FK_carona_1
-    FOREIGN KEY (FK_localizacao_id_localizacao)
-    REFERENCES localizacao (id_localizacao)
-    ON DELETE CASCADE ON UPDATE CASCADE;
- 
-ALTER TABLE carona ADD CONSTRAINT FK_carona_2
-    FOREIGN KEY (FK_motorista_FK_Usuario_login)
-    REFERENCES motorista (FK_Usuario_login)
-    ON DELETE CASCADE ON UPDATE CASCADE;
- 
-ALTER TABLE localizacao ADD CONSTRAINT FK_localizacao_1
-    FOREIGN KEY (FK_cep_cep)
-    REFERENCES cep (cep)
-    ON DELETE CASCADE ON UPDATE CASCADE;
-    
-ALTER TABLE localizacao ADD CONSTRAINT FK_localizacao_2
-    FOREIGN KEY (FK_cep_cep_)
-    REFERENCES cep (cep)
-    ON DELETE CASCADE ON UPDATE CASCADE;
-    
- 
-ALTER TABLE motorista ADD CONSTRAINT FK_motorista_1
-    FOREIGN KEY (FK_Usuario_login)
-    REFERENCES Usuario (login)
-    ON DELETE CASCADE ON UPDATE CASCADE;
- 
-ALTER TABLE consulta ADD CONSTRAINT FK_consulta_0
-    FOREIGN KEY (FK_carona_id_carona)
-    REFERENCES carona (id_carona)
-    ON DELETE SET NULL ON UPDATE CASCADE;
- 
-ALTER TABLE consulta ADD CONSTRAINT FK_consulta_1
-    FOREIGN KEY (FK_Usuario_login)
-    REFERENCES Usuario (login)
-    ON DELETE SET NULL ON UPDATE CASCADE;
- 
-ALTER TABLE tem ADD CONSTRAINT FK_tem_0
-    FOREIGN KEY (FK_veiculo_id_veiculo)
-    REFERENCES veiculo (id_veiculo)
-    ON DELETE SET NULL ON UPDATE CASCADE;
- 
-ALTER TABLE tem ADD CONSTRAINT FK_tem_1
-    FOREIGN KEY (FK_motorista_FK_Usuario_login)
-    REFERENCES motorista (FK_Usuario_login)
-    ON DELETE SET NULL ON UPDATE CASCADE;
-    
-    /* Inserts */
-    
 INSERT INTO usuario (login, nome, matricula_ou_siape, telefone, email, senha)
 VALUES  ('luiz12', 'Luiz Gonçalves', '20181bsi0178', '(27)99626375','luizgoncalves@gmail.com', 'password'),
 ('carlos1', 'Carlos Patricio', '20181bsi0179', '(27)88626375', 'carlospatricio@gmail.com', 'password1'),
@@ -171,17 +70,17 @@ INSERT INTO localizacao (horario_saida, horario_chegada, fk_cep_cep, fk_cep_cep_
 ('10:20','13:00', '29173-087', '29168-600'),
 ('12:00','19:00', '29173-087', '29164-050');
 
-INSERT INTO carona (avaliacao, nota_avaliacao, qtd_vagas, fk_localizacao_id_localizacao) VALUES 
-('bom motorista', 4, 3, 1),
-('pessima carona', 1, 2, 2),
-('horrivel', 1, 3, 3),
-('nada', 3, 1, 4),
-('boa carona', 3, 2, 5),
-('muito bom!', 5, 2, 6),
-('excelente.', 5, 3, 7),
-('nao gostei', 1, 2, 8),
-('recomendo', 4, 1, 9),
-('gente boa', 4, 1, 10);
+INSERT INTO carona (avaliacao, nota_avaliacao, qtd_vagas, fk_localizacao_id_localizacao, fk_motorista_fk_usuario_login) VALUES 
+('bom motorista', 4, 3, 1, 'luiz12'),
+('pessima carona', 1, 2, 2, 'furto'),
+('horrivel', 1, 3, 3, 'dummo'),
+('nada', 3, 1, 4, 'mago'),
+('boa carona', 3, 2, 5, 'mago'),
+('muito bom!', 5, 2, 6, 'silva31'),
+('excelente.', 5, 3, 7, 'berta'),
+('nao gostei', 1, 2, 8, 'dummo'),
+('recomendo', 4, 1, 9, 'calids'),
+('gente boa', 4, 1, 10, 'silva31');
 
 INSERT INTO veiculo (marca, modelo, cor) VALUES 
 ('Fiat', 'Palio', 'azul'),
@@ -194,3 +93,25 @@ INSERT INTO veiculo (marca, modelo, cor) VALUES
 ('Fiat', 'Punto', 'azul'),
 ('Fit', 'Honda', 'cinza'),
 ('Hyundai', 'HB20', 'vermelho');
+
+INSERT INTO consulta(fk_carona_id_carona, fk_usuario_login) VALUES
+(1,'luiz12'),
+(3, 'carlos1'),
+(4, 'furto'),
+(5,'dummo'),
+(6, 'furto'),
+(7, 'berta'),
+(8, 'berta'),
+(9, 'clara2'),
+(10, 'furto');
+
+INSERT INTO tem(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
+(1,'luiz12'),
+(3, 'carlos1'),
+(4, 'furto'),
+(5,'dummo'),
+(6, 'furto'),
+(7, 'berta'),
+(8, 'berta'),
+(9, 'clara2'),
+(10, 'furto');
