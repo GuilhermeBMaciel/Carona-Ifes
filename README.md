@@ -26,17 +26,14 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
     
 #### 5.3 DECISÕES DE PROJETO
     
-    a) Tabela "localizacao": foi criada uma tabela local a parte de "carona", para que possa ser reaproveitada em mais de um itinerário,
-    casa haja, tendo em vista que mais uma pessoa pode acabar registrando uma carona com o mesmo destino e local de saida. <br>
+a) Tabela "localizacao": foi criada uma tabela local a parte de "carona", para que possa ser reaproveitada em mais de um itinerário,casa haja, tendo em vista que mais uma pessoa pode acabar registrando uma carona com o mesmo destino e local de saida. <br>
       
-    b) Tabela "motorista": a tabela motorista foi incluida no modelo devido a presença do "cnh" em alguns usuários. Os usuários
-    "motoristas" possuem todos os atributos dos "usuarios" regulares, com o acrescimo do "cnh".<br>
+b) Tabela "motorista": a tabela motorista foi incluida no modelo devido a presença do "cnh" em alguns usuários. Os usuários "motoristas" possuem todos os atributos dos "usuarios" regulares, com o acrescimo do "cnh".<br>
     
-    c) Tabela "carona"; atributo "avaliacao": serve para armazenar a avalição por escrita feita pelos usuários para um determinado
+c) Tabela "carona"; atributo "avaliacao": serve para armazenar a avalição por escrita feita pelos usuários para um determinado
     motorista, servindo como um historico para este motorista, e possíveis futuras consultas por outros usuários.
     
-    d) Tabela "cep": a tabela cep serve com o propósito de ser a fonte bruta de dados de cep, municipio, bairro e rua dos endereços de
-    destino e partida das caronas.
+d) Tabela "cep": a tabela cep serve com o propósito de ser a fonte bruta de dados de cep, municipio, bairro e rua dos endereços de destino e partida das caronas.
    
 
 #### 5.4 DESCRIÇÃO DOS DADOS 
@@ -410,7 +407,7 @@ create function existeUsuario()
 returns trigger as $$
 begin
 	if exists(
-		Select usuario.login from usuario 
+		Select login from usuario 
 	)
 	then raise exception 'Erro! Usuário já existente';
 	end if;
