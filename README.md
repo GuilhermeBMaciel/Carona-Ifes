@@ -319,7 +319,7 @@ INSERT INTO tem(fk_veiculo_id_veiculo, fk_motorista_fk_usuario_login) VALUES
 	select * from usuario;
 ```
 
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/prints/select_usuario.PNG) <br>
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/usuario.PNG) <br>
 
 
 ```
