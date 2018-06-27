@@ -473,6 +473,11 @@ Resultado
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/verifica_cnh.PNG)
 
 <br>
+<br>
+
+Assertion para validar os inserts na tabela cep para que não ocorra a duplicação de CNHS.
+<br>
+
 
 ```
 /* Trigger 3 */
