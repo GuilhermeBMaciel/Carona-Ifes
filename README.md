@@ -403,14 +403,15 @@ select * from locaisRegistrados;
    Assertion para validar os inserts na tabela usuario, é fudamental que não ocorra a duplicação de logins.<br>    
 ```  
 /* Trigger 1 */
-create function existeUsuario()
+create or replace function existeUsuario()
 returns trigger as $$
 begin
 	if exists(
-		Select login from usuario 
+		Select login from usuario where usuario.login = new.login
 	)
-	then raise exception 'Erro! Usuário já existente';
+	then raise exception 'Erro! Cep já existente';
 	end if;
+	return NULL;
 end
 $$ LANGUAGE plpgsql;
 
@@ -440,14 +441,15 @@ Assertion para validar os inserts na tabela motorista para que não ocorra a dup
 
 ```
 /* Trigger 2 */
-create function existeCnh()
+create or replace function existeCnh()
 returns trigger as $$
 begin
 	if exists(
-		Select motorista.cnh from motorista 
+		Select cnh from motorista where motorista.cnh = new.cnh
 	)
-	then raise exception 'Erro! Cnh já registrado';
+	then raise exception 'Erro! Cep já existente';
 	end if;
+	return NULL;
 end
 $$ LANGUAGE plpgsql;
 
@@ -472,6 +474,40 @@ Resultado
 
 <br>
 
+```
+/* Trigger 3 */
+create or replace function existeCep()
+returns trigger as $$
+begin
+	if exists(
+		Select cep from cep where cep.cep = new.cep
+	)
+	then raise exception 'Erro! Cep já existente';
+	end if;
+	return NULL;
+end
+$$ LANGUAGE plpgsql;
+
+create trigger checkCep
+before insert
+on cep
+for each row
+execute procedure existeCep();
+```
+<br>
+Teste
+<br>
+
+```
+INSERT INTO motorista (cnh, fk_usuario_login) VALUES ('59089813750', 'luiz12')
+
+```
+Resultado
+<br>
+
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/prints/cepErro.PNG)
+
+<br>
 #### 9.5	Administração do banco de dados<br>
 
 Criamos usuário para acessar as tabelas e em seguida foi dado privilégios para estes usuários.
