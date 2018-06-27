@@ -22,7 +22,7 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 
 ### 5	MODELO CONCEITUAL<br>
 #### 5.1 NOTACAO ENTIDADE RELACIONAMENTO
-![Alt text](https://github.com/GuilhermeBMaciel/Topicos-Trabalho-BD2/blob/master/modelos/Conceitual_1.PNG)
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/modelos/Conceitual_1.png)
     
 #### 5.3 DECISÕES DE PROJETO
     
@@ -42,6 +42,7 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 #### 5.4 DESCRIÇÃO DOS DADOS 
 
 *__USUARIO__*: Tabela que contém os dados do usuário <br>
+- *idUsuario*: campo que armazena o número para identificação do itinerário <br>
 - *login*: campo que armazena o login do usuario <br>
 - *nome*: campo que armazena o nome do usuario <br>
 - *telefone*: campo que armazena o telefone do usuario <br>
@@ -81,7 +82,7 @@ A proposta do sistema é unir a pessoa que utiliza o carro como seu meio de tran
 ```
 CREATE TABLE Usuario (
     idUsuario serial PRIMARY KEY,
-	login VARCHAR,
+    login VARCHAR,
     nome VARCHAR,
     matricula_ou_siape VARCHAR,
     telefone VARCHAR,
