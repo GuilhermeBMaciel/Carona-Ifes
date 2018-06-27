@@ -504,7 +504,7 @@ As rotinas do sistema serão feitas com o comando "analyze;" pelo menos duas vez
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
 - [Scripts](https://github.com/GuilhermeBMaciel/Carona-Ifes/tree/master/insertion) <br>
-Para popular a principal tabela do nosso banco de dados, utilizamos a linguagem python junto com a biblioteca faker. No nosso caso, utilizamos um i7 da 4 geração com 8 memória RAM para gerar e popular o banco e demorou aproximadamente 4 minutos para inserer aproximadamente 1,5 milhões de dados na tabela de usuário e 100 mil dados na tabela de motorista.<br>
+Para popular a principal tabela do nosso banco de dados, utilizamos a linguagem python junto com a biblioteca faker. No nosso caso, utilizamos um i7 da 4 geração com 8 memória RAM para gerar e popular o banco e demorou aproximadamente 1 minuto e 20 segundos para inserer aproximadamente 1,5 milhões de dados na tabela de carona e 100 mil dados nas tabelas auxiliares.<br>
 	
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/insertion/script_insertion.PNG)
         
@@ -514,8 +514,8 @@ Para popular a principal tabela do nosso banco de dados, utilizamos a linguagem 
 
 | Tipo | Tamanho | Tempo Backup | Tempo Restore |
 | ---- | ------- | ------------ | ------------- |
-|SQL|60,2|8.7|20.8|
-|FC|60,2|19|25|
+|SQL|18.3|6.31|8.05|
+|FC|18.3|9.0|11.0|
 
 
 
