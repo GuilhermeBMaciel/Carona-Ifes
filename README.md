@@ -635,12 +635,19 @@ Backup
     e) As imagens do Explain devem ser inclusas no trabalho, bem como explicações sobre os resultados obtidos.
    
 EXPLAIN 
+
 	A SEM INDICE
-![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/explains/Explains/Motorista_SemIndice/explainMorotistaLocal.PNG)	
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/explains/Explains/Motorista_SemIndice/explainMorotistaLocal.PNG)
+
+	A COM INDICE
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/explains/hashMotorista.PNG)	
+	
 	B SEM INDICE
 
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/explains/Explains/carro_SemIndice/carro_semOriDes.PNG)
-
+	
+	B COM INDICE
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/explains/hashCarro.PNG)	
 
     f) Inclusão de tabela mostrando as 10 execuções, excluindo-se o maior e menor tempos para cada consulta e 
     obtendo-se a media dos outros valores como resultado médio final.
