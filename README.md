@@ -581,7 +581,7 @@ Backup
 ```
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
-    a) Lista de índices, tipos de índices com explicação de porque foram implementados nas consultas 
+
   O "index_consulta" foi criado afim de tornar a busca pelos usuários relacionados a uma determinada carona. E o "index_localizacao"
   foi criado afim de identificar quais destinos estão sendo mais visitados pelos usuários do sistema.
   ```  
@@ -597,9 +597,17 @@ Backup
     
     b) Performance esperada VS Resultados obtidos
     
-    c) Tabela de resultados comparando velocidades antes e depois da aplicação dos índices (constando velocidade esperada com 
-    planejamento, sem indice e com índice Vs velocidade de execucao real com índice e sem índice).
-    
+
+<br>
+
+| Tabela | Sem Indice | Com Indice |
+| ------ | ---------- | ---------- | 
+|A executado|1592.1ms|1471.5ms|
+|A planejado|1.1ms|1.1ms|
+|B executado|226.2ms|178.1ms|
+|B planejado|3.8ms|4.0ms|
+
+<br> 
     d) Escolher as consultas mais complexas para serem analisadas (consultas com menos de 2 joins não serão aceitas)
     
   ```
@@ -625,20 +633,19 @@ Backup
 ```  
     
     e) As imagens do Explain devem ser inclusas no trabalho, bem como explicações sobre os resultados obtidos.
-    
+   
+EXPLAIN 
+	A SEM INDICE
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/explains/Explains/Motorista_SemIndice/explainMorotistaLocal.PNG)	
+	B SEM INDICE
+
+![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/explains/Explains/carro_SemIndice/carro_semOriDes.PNG)
+
+
     f) Inclusão de tabela mostrando as 10 execuções, excluindo-se o maior e menor tempos para cada consulta e 
     obtendo-se a media dos outros valores como resultado médio final.
     
-<br>
-
-| Tabela | Com Indice | Sem Indice |
-| ------ | ---------- | ---------- | 
-|A esperado|||
-|A real|||
-|B esperado|||
-|B Real|||
-
-<br>   
+  
 
 
 #### 9.9	ANÁLISE DOS DADOS COM ORANGE<br>    
