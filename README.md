@@ -585,8 +585,14 @@ Backup
   O "index_consulta" foi criado afim de tornar a busca pelos usuários relacionados a uma determinada carona. E o "index_localizacao"
   foi criado afim de identificar quais destinos estão sendo mais visitados pelos usuários do sistema.
   ```  
-  create index index_consulta on consulta(fk_carona_id_carona);
-  create index index_localizacao on localizacao(id_localizacao);
+	create index index_consulta on consulta(fk_carona_id_carona);
+	create index index_localizacao on localizacao(id_localizacao);
+	create index index_veiculo on veiculo(id_veiculo);
+	create index index_cep on cep(cep);
+	create index index_motorista on motorista(fk_Usuario_idusuario);
+	create index index_usuario on usuario(idUsuario);
+	create index index_carona on carona(id_carona);
+
   ```  
     
     b) Performance esperada VS Resultados obtidos
@@ -600,21 +606,21 @@ Backup
  A - 
 	select u.nome as motorista, cz.bairro as origem,ce.bairro as destino 
 	from usuario u
-	inner join motorista mo on (mo.fk_usuario_login = u.login)
-	inner join carona ca on (ca.fk_motorista_fk_usuario_login = mo.fk_usuario_login)
+	inner join motorista mo on (mo.fk_usuario_idusuario = u.idusuario)
+	inner join carona ca on (ca.fk_motorista_fk_idusuario = mo.fk_usuario_idusuario)
 	inner join localizacao lo on (lo.id_localizacao = ca.fk_localizacao_id_localizacao)
 	inner join cep ce on (ce.cep = lo.fk_cep_cep)
 	inner join cep cz on (cz.cep = lo.fk_cep_cep_)
 	
   B - 	
-  	select u.nome as motorista, cz.bairro as origem,ce.bairro as destino, car.modelo
+	select u.nome as motorista, cz.bairro as origem,ce.bairro as destino, car.modelo
 	from usuario u
-	inner join motorista mo on (mo.fk_usuario_login = u.login)
-	inner join carona ca on (ca.fk_motorista_fk_usuario_login = mo.fk_usuario_login)
+	inner join motorista mo on (mo.fk_usuario_idusuario = u.idusuario)
+	inner join carona ca on (ca.fk_motorista_fk_idusuario = mo.fk_usuario_idusuario)
 	inner join localizacao lo on (lo.id_localizacao = ca.fk_localizacao_id_localizacao)
 	inner join cep ce on (ce.cep = lo.fk_cep_cep)
 	inner join cep cz on (cz.cep = lo.fk_cep_cep_)
-	inner join tem te on (te.fk_motorista_fk_usuario_login = mo.fk_usuario_login)
+	inner join tem te on (te.fk_motorista_fk_usuario_idusuario = mo.fk_usuario_idusuario)
 	inner join veiculo car on (te.fk_veiculo_id_veiculo = car.id_veiculo);
 ```  
     
