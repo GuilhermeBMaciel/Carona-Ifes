@@ -595,7 +595,7 @@ Backup
 
   ```  
     
-    b) Performance esperada VS Resultados obtidos
+   
     
 
 <br>
@@ -608,7 +608,6 @@ Backup
 |B planejado|3.8ms|4.0ms|
 
 <br> 
-    d) Escolher as consultas mais complexas para serem analisadas (consultas com menos de 2 joins não serão aceitas)
     
   ```
  A - 
@@ -632,7 +631,7 @@ Backup
 	inner join veiculo car on (te.fk_veiculo_id_veiculo = car.id_veiculo);
 ```  
     
-    e) As imagens do Explain devem ser inclusas no trabalho, bem como explicações sobre os resultados obtidos.
+ 
    
 EXPLAIN 
 
@@ -649,9 +648,13 @@ EXPLAIN
 	B COM INDICE
 ![Alt text](https://github.com/GuilhermeBMaciel/Carona-Ifes/blob/master/explains/hashCarro.PNG)	
 
-    f) Inclusão de tabela mostrando as 10 execuções, excluindo-se o maior e menor tempos para cada consulta e 
-    obtendo-se a media dos outros valores como resultado médio final.
     
+| Tabela | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | med|
+| -------|----|----|----|----|----|----|----|----|----|----|----|
+|A Sem Indice|1609 ms|1340 ms|1327 ms|1518 ms|1348 ms|1383 ms|1334 ms|1330 ms|1475 ms|1471 ms||
+|A Com Indice|1721 ms|1718 ms|1439 ms|1344 ms|1251 ms|1430 ms|1368 ms|1374 ms|1320 ms|1343 ms||
+|B Sem Indice|173 ms|177 ms|173 ms|173 ms|191 ms|172 ms|202 ms|192 ms|196 ms|177 ms||
+|B Com Indice|3336 ms|169 ms|176 ms|177 ms|175 ms|195 ms|188 ms|174 ms|171 ms|211 ms||  
   
 
 
